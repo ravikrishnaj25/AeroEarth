@@ -169,6 +169,109 @@ app.get("/api/aqi", async (req, res) => {
   }
 });
 
+// =====================================================================
+//                      ML ENDPOINTS & AGENT WORKFLOWS
+// =====================================================================
+
+const ML_BACKEND_URL = process.env.ML_BACKEND_URL || "http://127.0.0.1:7860";
+
+// Helper to call Gradio API
+async function callGradioApi(endpointIndex, data) {
+  try {
+    const response = await fetch(`${ML_BACKEND_URL}/api/predict/`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data, fn_index: endpointIndex }),
+    });
+    if (!response.ok) {
+      throw new Error(`ML Backend Error: ${response.statusText}`);
+    }
+    const result = await response.json();
+    return result.data[0]; // Gradio returns array of outputs
+  } catch (error) {
+    console.error("Gradio API call failed:", error);
+    throw error;
+  }
+}
+
+// 1. Tree Impact Predictor
+app.post("/api/ml/tree", async (req, res) => {
+  const { aqi, pm25, temperature, humidity, wind_speed } = req.body;
+  try {
+    // fn_index 0 is tree predict
+    const predictionStr = await callGradioApi(0, [aqi, pm25, temperature, humidity, wind_speed]);
+    const prediction = JSON.parse(predictionStr);
+    res.json(prediction);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to predict tree impact" });
+  }
+});
+
+// 2. Vertical Garden Impact Predictor
+app.post("/api/ml/garden", async (req, res) => {
+  const { aqi, pm25, area_m2, temperature, humidity } = req.body;
+  try {
+    // fn_index 1 is garden predict
+    const predictionStr = await callGradioApi(1, [aqi, pm25, area_m2, temperature, humidity]);
+    const prediction = JSON.parse(predictionStr);
+    res.json(prediction);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to predict garden impact" });
+  }
+});
+
+// 3. Air Purifier Impact Predictor
+app.post("/api/ml/purifier", async (req, res) => {
+  const { aqi, pm25, room_size_sqft, ventilation_rate } = req.body;
+  try {
+    // fn_index 2 is purifier predict
+    const predictionStr = await callGradioApi(2, [aqi, pm25, room_size_sqft, ventilation_rate]);
+    const prediction = JSON.parse(predictionStr);
+    res.json(prediction);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to predict purifier impact" });
+  }
+});
+
+// 4. Agent Workflow: Best Intervention Recommender
+app.post("/api/agent/recommend", async (req, res) => {
+  const { environment, aqi, pm25, temperature, humidity, wind_speed, available_area_m2, room_size_sqft } = req.body;
+  
+  try {
+    // Simulate an agent workflow that evaluates multiple models to recommend the best option
+    let options = [];
+    
+    if (environment === "outdoor") {
+      const treePredStr = await callGradioApi(0, [aqi, pm25, temperature, humidity, wind_speed || 5]);
+      const treePred = JSON.parse(treePredStr);
+      options.push({ type: "Tree", improvement: treePred.predictions.aqi_improvement_points, details: treePred });
+
+      if (available_area_m2) {
+        const gardenPredStr = await callGradioApi(1, [aqi, pm25, available_area_m2, temperature, humidity]);
+        const gardenPred = JSON.parse(gardenPredStr);
+        options.push({ type: "Vertical Garden", improvement: gardenPred.predictions.aqi_improvement_points, details: gardenPred });
+      }
+    } else if (environment === "indoor") {
+      const purifierPredStr = await callGradioApi(2, [aqi, pm25, room_size_sqft || 400, 2.0]);
+      const purifierPred = JSON.parse(purifierPredStr);
+      // Purifiers usually output pm25 reduction percent, so we map it to an approximate AQI improvement
+      const aqiImp = (purifierPred.predictions.pm25_reduction_percent / 100) * aqi;
+      options.push({ type: "Air Purifier", improvement: aqiImp, details: purifierPred });
+    }
+
+    // Sort by best AQI improvement
+    options.sort((a, b) => b.improvement - a.improvement);
+
+    res.json({
+      recommendation: options.length > 0 ? options[0] : null,
+      alternatives: options.slice(1),
+      context: "Agent evaluated potential interventions using LSTM predictions."
+    });
+  } catch (error) {
+    res.status(500).json({ error: "Agent workflow failed to generate recommendations" });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`AQI Backend running on http://localhost:${PORT}`);
 });
