@@ -33,7 +33,7 @@ const TourOverlay: React.FC<TourOverlayProps> = ({
   onNext,
   onPrev,
   onSkip,
-  appTitle = 'AEROEARTH',
+  appTitle = 'ECOGUARDIAN',
   welcomeSubtitle = 'Welcome to the AQI Dashboard! Let us walk you through the key features — wind effects, pollution layers, and eco tools.',
 }) => {
   const [highlightRect, setHighlightRect] = useState<HighlightRect | null>(null);

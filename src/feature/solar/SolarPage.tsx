@@ -383,13 +383,7 @@ const SolarPage: React.FC = () => {
             <p className="text-[10px] text-white/40 mt-1">Based on avg 4kW rooftop system</p>
           </div>
 
-          {/* Get Quote Button */}
-          <button 
-            onClick={() => alert(`Quote Request:\n- Shadow Loss: ${(shadowCoverage * 100).toFixed(0)}%\n- Tariff: ₹${tariff}/unit\n- Peak Sun: ${peakSunHours} hrs\n\nOur team will contact you shortly!`)}
-            className="w-full py-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl text-sm font-semibold transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-yellow-500/20"
-          >
-            Get Quote 
-          </button>
+
 
           {/* VR Mode Button */}
           <div data-tour="solar-vr-button">

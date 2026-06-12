@@ -521,13 +521,7 @@ const WaterPage: React.FC = () => {
             </span>
           </div>
 
-          {/* Get Quote Button */}
-          <button
-            onClick={() => alert(`Quote Request:\n- Rain Intensity: ${rainIntensity.toFixed(1)}x\n- Angle: ${rainAngle.toFixed(2)}\n- Est. Collection: ${Math.round(rainIntensity * 2500)} L/day\n\nOur team will contact you shortly!`)}
-            className="w-full py-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl text-sm font-semibold transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-500/20"
-          >
-            ✅ Get Quote / Buy Now
-          </button>
+
 
           {/* VR Mode Button */}
           <div data-tour="water-vr-button">

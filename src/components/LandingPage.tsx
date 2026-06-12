@@ -160,7 +160,7 @@ const LandingPage = () => {
     setIsPopupOpen(false);
     setTimeout(() => navigate(route), 200);
   };
-  const titleText = 'AEROEARTH';
+  const titleText = 'ECOGUARDIAN';
 
   // Helper component for stats rows
   const StatRow = ({ label, value, valueColor = 'rgba(255, 255, 255, 0.9)' }: { label: string; value: string; valueColor?: string }) => (
@@ -241,7 +241,7 @@ const LandingPage = () => {
             zIndex: 1,
           }}
         />
-        {/* Top Center - AeroEarth Title */}
+        {/* Top Center - EcoGuardian Title */}
         <div
           style={{
             display: 'flex',

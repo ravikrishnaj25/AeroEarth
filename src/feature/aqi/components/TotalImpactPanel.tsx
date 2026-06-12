@@ -89,10 +89,7 @@ export const TotalImpactPanel: React.FC<TotalImpactPanelProps> = ({ summary, onG
                     </div>
                 </div>
                 
-                {/* CTA Button */}
-                <button className="cta-button" onClick={onGetQuote}>
-                    Get Quote 
-                </button>
+
             </div>
         </div>
     );
