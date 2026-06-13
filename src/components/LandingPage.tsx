@@ -16,6 +16,7 @@ const LandingPage = () => {
     { id: 'aqi', title: 'AQI', description: 'Real-time air quality monitoring and pollution tracking across cities', route: '/aqi' },
     { id: 'water', title: 'Water', description: 'Comprehensive water resource management and quality analysis', route: '/water' },
     { id: 'solar', title: 'Solar', description: 'Solar energy potential mapping and renewable power insights', route: '/solar' },
+    { id: 'agent', title: 'Agent', description: 'Autonomous AI agent monitoring and citizen climate quests', route: '/agent-monitor' },
   ];
 
   const [activeCard, setActiveCard] = useState(0);
