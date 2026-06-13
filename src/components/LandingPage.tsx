@@ -16,7 +16,6 @@ const LandingPage = () => {
     { id: 'aqi', title: 'AQI', description: 'Real-time air quality monitoring and pollution tracking across cities', route: '/aqi' },
     { id: 'water', title: 'Water', description: 'Comprehensive water resource management and quality analysis', route: '/water' },
     { id: 'solar', title: 'Solar', description: 'Solar energy potential mapping and renewable power insights', route: '/solar' },
-    { id: 'agent', title: 'Agent', description: 'Autonomous AI agent monitoring and citizen climate quests', route: '/agent-monitor' },
   ];
 
   const [activeCard, setActiveCard] = useState(0);
@@ -1311,6 +1310,39 @@ const LandingPage = () => {
 
         </motion.div>
       </div>
+
+      {/* Agent Mode Floating Button */}
+      <motion.button
+        onClick={() => navigate('/agent-monitor')}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        style={{
+          position: 'fixed',
+          bottom: '2rem',
+          right: '2rem',
+          zIndex: 30,
+          padding: '1rem 1.5rem',
+          backgroundColor: 'rgba(0, 255, 85, 0.1)',
+          border: '1px solid #00ff55',
+          borderRadius: '30px',
+          color: '#00ff55',
+          fontFamily: "'Outfit', sans-serif",
+          fontSize: '1rem',
+          fontWeight: 600,
+          cursor: 'pointer',
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0 0 20px rgba(0, 255, 85, 0.2)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          transition: 'all 0.3s ease'
+        }}
+      >
+        <span style={{ fontSize: '1.2rem' }}>🤖</span>
+        Agent Mode
+      </motion.button>
 
       {/* Popup Menu */}
       <AnimatePresence>
