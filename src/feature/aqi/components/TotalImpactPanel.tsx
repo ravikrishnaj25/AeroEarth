@@ -7,7 +7,7 @@ interface TotalImpactPanelProps {
     onGetQuote?: () => void;
 }
 
-export const TotalImpactPanel: React.FC<TotalImpactPanelProps> = ({ summary, onGetQuote }) => {
+export const TotalImpactPanel: React.FC<TotalImpactPanelProps> = ({ summary }) => {
     const hasAnyPlacements = summary.treesPlaced > 0 || summary.gardenAreaM2 > 0 || summary.purifiersPlaced > 0;
     
     if (!hasAnyPlacements) return null;
