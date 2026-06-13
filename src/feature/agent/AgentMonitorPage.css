@@ -1,0 +1,97 @@
+/* Agent Monitor Page Specific Custom Styles */
+
+.agent-dashboard {
+  background: radial-gradient(circle at 50% 50%, #030805 0%, #000000 100%);
+  min-height: 100vh;
+  color: #f8fafc;
+}
+
+/* Neon Text and Border Glows */
+.border-glow-green {
+  box-shadow: 0 0 15px rgba(0, 255, 85, 0.08);
+  border: 1px solid rgba(0, 255, 85, 0.25) !important;
+}
+
+.border-glow-green:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 85, 0.18);
+  border: 1px solid rgba(0, 255, 85, 0.45) !important;
+}
+
+.text-glow-green {
+  text-shadow: 0 0 8px rgba(0, 255, 85, 0.6);
+}
+
+.border-glow-purple {
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.08);
+  border: 1px solid rgba(168, 85, 247, 0.25) !important;
+}
+
+.border-glow-purple:hover {
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.18);
+  border: 1px solid rgba(168, 85, 247, 0.45) !important;
+}
+
+/* Custom Scrollbar */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 85, 0.15);
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 85, 0.35);
+}
+
+/* CRT / Scanline effect for CLI */
+.crt-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.crt-effect::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 10;
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Grid Layout Customizations */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 280px 1fr 1fr;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(0, 255, 85, 0.4);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 15px rgba(0, 255, 85, 0.7);
+  }
+}
+
+.pulse-glow-green {
+  animation: pulse-glow 2s infinite ease-in-out;
+}
