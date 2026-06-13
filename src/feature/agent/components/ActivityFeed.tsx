@@ -94,7 +94,7 @@ export const ActivityFeed: React.FC<ActivityFeedProps> = ({ logs, currentNodeId,
         )}
       </div>
 
-      {/* CLI Mock Footer */}
+      {/* CLI Simulated Footer */}
       <div className="border-t border-[rgba(0,255,85,0.1)] pt-3 mt-3 flex items-center font-mono text-[10px] text-slate-500">
         <span className="text-[#00ff55] mr-2">ecoguardian-agent-cli&gt;</span>
         <span className="animate-pulse font-bold text-white">|</span>

@@ -6,7 +6,7 @@ interface VerificationPanelProps {
 }
 
 export const VerificationPanel: React.FC<VerificationPanelProps> = ({ verifications }) => {
-  // Compute some mock aggregate metrics based on verification data or reasonable static baselines
+  // Compute some simulated aggregate metrics based on verification data or reasonable static baselines
   const totalCount = verifications.length;
   const avgAccuracy = totalCount > 0 
     ? Math.round(verifications.reduce((sum, item) => sum + item.accuracy, 0) / totalCount)

@@ -9,7 +9,7 @@ import type {
   VerificationResult,
   ActionType
 } from './types';
-import { MOCK_ZONES, MOCK_LLM_REASONING, FAKE_TXS } from './mockData';
+import { SIMULATION_ZONES, SIMULATION_LLM_REASONING, SIMULATION_TXS } from './simulationData';
 
 // 1. IngestNode
 export class IngestNode {
@@ -35,7 +35,7 @@ export class IngestNode {
     }
 
     // Default load
-    return MOCK_ZONES.map(z => ({
+    return SIMULATION_ZONES.map(z => ({
       ...z,
       timestamp: new Date().toISOString()
     }));
@@ -170,7 +170,7 @@ export class ReasoningNode {
             : 0;
 
       // Extract LLM reasoning template or write a dynamic fallback
-      const templates = MOCK_LLM_REASONING[alert.zoneId] || MOCK_LLM_REASONING['chennai-north'];
+      const templates = SIMULATION_LLM_REASONING[alert.zoneId] || SIMULATION_LLM_REASONING['chennai-north'];
       const llmReasoning = templates[action] || `Autonomous check completed. Node verified. Decision: ${action}.`;
 
       if (action === 'PLANT_TREES') {
@@ -296,7 +296,7 @@ export class BlockchainNode {
       .filter(d => d.action !== 'MONITOR')
       .map((decision, index) => {
         const tokenId = (1000 + cycleIndex * 10 + index).toString();
-        const txHash = FAKE_TXS[(cycleIndex + index) % FAKE_TXS.length];
+        const txHash = SIMULATION_TXS[(cycleIndex + index) % SIMULATION_TXS.length];
         
         let details = '';
         if (decision.action === 'PLANT_TREES') {
@@ -338,7 +338,7 @@ export class VerifyNode {
       if (pred.action === 'PLANT_TREES') {
         // We predicted a negative AQI change (reduction)
         predictedDelta = pred.predictedAqiChange;
-        // Mock the actual reduction: make it close to prediction (85% to 105% accuracy)
+        // Simulate the actual reduction: make it close to prediction (85% to 105% accuracy)
         const accuracyMultiplier = 0.82 + Math.random() * 0.22;
         actualDelta = parseFloat((predictedDelta * accuracyMultiplier).toFixed(1));
       } else if (pred.action === 'WATER_CONSERVATION') {

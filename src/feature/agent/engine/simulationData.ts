@@ -1,6 +1,6 @@
 import type { ZoneState } from './types';
 
-export const MOCK_ZONES: ZoneState[] = [
+export const SIMULATION_ZONES: ZoneState[] = [
   {
     id: 'chennai-north',
     name: 'Chennai North (Industrial)',
@@ -75,7 +75,7 @@ export const MOCK_ZONES: ZoneState[] = [
   }
 ];
 
-export const MOCK_LLM_REASONING: Record<string, {
+export const SIMULATION_LLM_REASONING: Record<string, {
   PLANT_TREES: string;
   WATER_CONSERVATION: string;
   SOLAR_ADOPTION: string;
@@ -167,7 +167,7 @@ export const MOCK_LLM_REASONING: Record<string, {
   }
 };
 
-export const FAKE_TXS = [
+export const SIMULATION_TXS = [
   '0x72c3dbf92de31481b3720769cf36de42ff09e05a8120b0805cfd1a3c749ab12a',
   '0xa5cde1837ff29081a28a3f8901b0f191f6305a765e90214a1a5b82cc3941cb82',
   '0x2d8a55b1ffc629810a91e52ab761ee452b61ef2f0931aa570992a2a0174092fc',
