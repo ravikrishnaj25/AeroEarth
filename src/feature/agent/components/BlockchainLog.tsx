@@ -1,3 +1,4 @@
+import { TreePine, Droplets, Sun, Search, Link, Check } from 'lucide-react';
 import React from 'react';
 import type { NFTRecord } from '../engine/types';
 
@@ -9,13 +10,13 @@ export const BlockchainLog: React.FC<BlockchainLogProps> = ({ nfts }) => {
   const getActionEmoji = (actionType: string) => {
     switch (actionType) {
       case 'PLANT_TREES':
-        return '🌲';
+        return <TreePine size={12} />;
       case 'WATER_CONSERVATION':
-        return '💧';
+        return <Droplets size={12} />;
       case 'SOLAR_ADOPTION':
-        return '☀️';
+        return <Sun size={12} />;
       default:
-        return '🔍';
+        return <Search size={12} />;
     }
   };
 
@@ -23,12 +24,12 @@ export const BlockchainLog: React.FC<BlockchainLogProps> = ({ nfts }) => {
     <div className="w-full bg-[#0a0f0d] border border-[rgba(0,255,85,0.15)] rounded-2xl p-5 shadow-[0_0_20px_rgba(0,255,85,0.02)] flex flex-col h-[480px]">
       <div className="flex justify-between items-center mb-4 border-b border-[rgba(0,255,85,0.1)] pb-3">
         <div className="flex items-center gap-2">
-          <span className="text-sm">⛓️</span>
+          <span className="text-sm"><Link size={12} /></span>
           <h3 className="text-[#00ff55] font-mono text-sm tracking-wider uppercase font-semibold">
             On-Chain Notarization Ledger
           </h3>
         </div>
-        <span className="text-[9px] font-mono bg-purple-900/30 text-purple-400 border border-purple-500/20 px-2 py-0.5 rounded-full font-bold">
+        <span className="text-xs font-mono bg-purple-900/30 text-purple-400 border border-purple-500/20 px-2 py-0.5 rounded-full font-bold">
           Polygon Amoy Testnet
         </span>
       </div>
@@ -50,19 +51,19 @@ export const BlockchainLog: React.FC<BlockchainLogProps> = ({ nfts }) => {
                     <span className="text-sm bg-purple-950/40 text-purple-400 p-1.5 rounded-lg border border-purple-500/10">
                       ID: #{nft.tokenId}
                     </span>
-                    <span className="text-[10px] font-mono text-slate-300 font-semibold">{nft.zoneName}</span>
+                    <span className="text-xs font-mono text-slate-300 font-semibold">{nft.zoneName}</span>
                   </div>
-                  <span className="text-[9px] font-mono text-emerald-400 bg-emerald-950/20 border border-emerald-500/20 px-2 py-0.5 rounded">
-                    Minted ✓
+                  <span className="text-xs font-mono text-emerald-400 bg-emerald-950/20 border border-emerald-500/20 px-2 py-0.5 rounded">
+                    Minted <Check size={12} />
                   </span>
                 </div>
 
-                <p className="text-[10px] font-mono text-slate-400 mb-3 leading-normal">
+                <p className="text-xs font-mono text-slate-400 mb-3 leading-normal">
                   <span className="mr-1">{getActionEmoji(nft.actionType)}</span>
                   {nft.details}
                 </p>
 
-                <div className="border-t border-slate-900/80 pt-2.5 flex flex-col gap-1 text-[9px] font-mono text-slate-500">
+                <div className="border-t border-slate-900/80 pt-2.5 flex flex-col gap-1 text-xs font-mono text-slate-500">
                   <div className="flex justify-between">
                     <span>IPFS Metadata:</span>
                     <span className="text-slate-400 select-all">{nft.metadataUrl.slice(0, 22)}...</span>
@@ -78,7 +79,7 @@ export const BlockchainLog: React.FC<BlockchainLogProps> = ({ nfts }) => {
                       {nft.txHash.slice(0, 10)}...{nft.txHash.slice(-8)}
                     </a>
                   </div>
-                  <div className="text-right text-[8px] text-slate-600 mt-1">
+                  <div className="text-right text-xs text-slate-600 mt-1">
                     Confirmed: {new Date(nft.timestamp).toLocaleTimeString()}
                   </div>
                 </div>

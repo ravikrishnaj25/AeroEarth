@@ -468,7 +468,7 @@ const WaterPage: React.FC = () => {
       </div>
 
       {/* Footer Info */}
-      <div className="absolute bottom-5 right-5 z-10 px-4 py-2 bg-black/40 backdrop-blur-sm rounded text-[10px] text-white/60">
+      <div className="absolute bottom-5 right-5 z-10 px-4 py-2 bg-black/40 backdrop-blur-sm rounded text-xs text-white/60">
         Ahmedabad, Gujarat Visualization • Data powered by OSM & Cesium
       </div>
 
@@ -510,7 +510,7 @@ const WaterPage: React.FC = () => {
             <p className="text-xl font-bold text-blue-400">
               {Math.round(rainIntensity * 2500 * (isRaining ? 1 : 0.3)).toLocaleString('en-IN')} L
             </p>
-            <p className="text-[10px] text-white/40 mt-1">Based on avg 100m² rooftop</p>
+            <p className="text-xs text-white/40 mt-1">Based on avg 100m² rooftop</p>
           </div>
 
           {/* Tank Capacity Estimate */}

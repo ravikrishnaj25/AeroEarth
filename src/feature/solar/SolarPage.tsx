@@ -333,17 +333,17 @@ const SolarPage: React.FC = () => {
       {/* Stats Overlay Bottom */}
       <div className="absolute top-5 right-5 z-10 flex gap-4" data-tour="solar-stats">
         <div className="px-4 py-2 bg-slate-900/60 backdrop-blur-md rounded-xl border border-white/10 text-center">
-          <p className="text-[10px] uppercase tracking-tighter text-white/40">Avg. Irradiation</p>
-          <p className="text-lg font-bold text-yellow-400">5.8 <span className="text-[10px] text-white/60">kWh/m²</span></p>
+          <p className="text-xs uppercase tracking-tighter text-white/40">Avg. Irradiation</p>
+          <p className="text-lg font-bold text-yellow-400">5.8 <span className="text-xs text-white/60">kWh/m²</span></p>
         </div>
         <div className="px-4 py-2 bg-slate-900/60 backdrop-blur-md rounded-xl border border-white/10 text-center">
-          <p className="text-[10px] uppercase tracking-tighter text-white/40">Market Tariff</p>
-          <p className="text-lg font-bold text-green-400">₹8.5 <span className="text-[10px] text-white/60">avg</span></p>
+          <p className="text-xs uppercase tracking-tighter text-white/40">Market Tariff</p>
+          <p className="text-lg font-bold text-green-400">₹8.5 <span className="text-xs text-white/60">avg</span></p>
         </div>
       </div>
 
       {/* Footer Info */}
-      <div className="absolute bottom-5 right-5 z-10 px-4 py-2 bg-black/40 backdrop-blur-sm rounded text-[10px] text-white/60">
+      <div className="absolute bottom-5 right-5 z-10 px-4 py-2 bg-black/40 backdrop-blur-sm rounded text-xs text-white/60">
         Ahmedabad, Gujarat Visualization • Data powered by OSM & Cesium
       </div>
 
@@ -380,7 +380,7 @@ const SolarPage: React.FC = () => {
             <p className="text-xl font-bold text-yellow-400">
               ₹{Math.round((1 - shadowCoverage) * tariff * peakSunHours * 30 * 4).toLocaleString('en-IN')}
             </p>
-            <p className="text-[10px] text-white/40 mt-1">Based on avg 4kW rooftop system</p>
+            <p className="text-xs text-white/40 mt-1">Based on avg 4kW rooftop system</p>
           </div>
 
 

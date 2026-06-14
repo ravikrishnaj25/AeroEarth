@@ -48,7 +48,7 @@ const AgentMonitorPage: React.FC = () => {
             <h1 className="text-white font-mono text-sm tracking-wider font-bold flex items-center gap-2">
               <span className="text-[#00ff55] text-glow-green">🛡️ EcoGuardian</span> Agent Monitor
             </h1>
-            <p className="text-[10px] text-slate-500 font-mono">
+            <p className="text-xs text-slate-500 font-mono">
               Autonomous AI-driven climate protection planner
             </p>
           </div>
@@ -56,7 +56,7 @@ const AgentMonitorPage: React.FC = () => {
 
         {/* Global Agent State Pill */}
         <div className="flex items-center gap-4">
-          <div className="bg-slate-950/80 border border-slate-900 rounded-xl px-4 py-1.5 flex items-center gap-2.5 font-mono text-[10px] text-slate-400">
+          <div className="bg-slate-950/80 border border-slate-900 rounded-xl px-4 py-1.5 flex items-center gap-2.5 font-mono text-xs text-slate-400">
             <span className="flex h-2 w-2 relative">
               <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${state.status === 'running' ? 'bg-[#00ff55]' : 'bg-blue-400'}`}></span>
               <span className={`relative inline-flex rounded-full h-2 w-2 ${state.status === 'running' ? 'bg-[#00ff55]' : 'bg-blue-400'}`}></span>
@@ -67,7 +67,7 @@ const AgentMonitorPage: React.FC = () => {
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); navigate('/aqi'); }}
-            className="text-[10px] font-mono bg-[#00ff55]/10 text-[#00ff55] border border-[#00ff55]/20 hover:bg-[#00ff55]/20 px-3 py-1.5 rounded-lg transition-all font-semibold"
+            className="text-xs font-mono bg-[#00ff55]/10 text-[#00ff55] border border-[#00ff55]/20 hover:bg-[#00ff55]/20 px-3 py-1.5 rounded-lg transition-all font-semibold"
           >
             Open Cesium Globe →
           </a>
@@ -84,13 +84,13 @@ const AgentMonitorPage: React.FC = () => {
             <div>
               <div className="flex justify-between items-center mb-4 border-b border-[rgba(0,255,85,0.1)] pb-2.5">
                 <span className="text-[#00ff55] text-xs font-bold uppercase tracking-wider">Engine Controller</span>
-                <span className="text-[9px] text-slate-500">v0.9.0-BETA</span>
+                <span className="text-xs text-slate-500">v0.9.0-BETA</span>
               </div>
 
               {/* Selector / Configuration */}
               <div className="space-y-3">
                 <div className="space-y-1">
-                  <label className="text-[10px] text-slate-500 block uppercase">LLM Planner Core</label>
+                  <label className="text-xs text-slate-500 block uppercase">LLM Planner Core</label>
                   <select 
                     value={selectedModel}
                     onChange={(e) => setSelectedModel(e.target.value as any)}
@@ -102,7 +102,7 @@ const AgentMonitorPage: React.FC = () => {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[10px] text-slate-500 block uppercase">Auto-Cycle Rate</label>
+                  <label className="text-xs text-slate-500 block uppercase">Auto-Cycle Rate</label>
                   <select 
                     value={runInterval}
                     onChange={handleIntervalChange}
@@ -141,7 +141,7 @@ const AgentMonitorPage: React.FC = () => {
                 {isAutoRunning ? '❚❚ Pause Auto-Scheduler' : '▶ Enable Auto-Scheduler'}
               </button>
 
-              <div className="text-[9px] text-slate-500 text-center mt-1">
+              <div className="text-xs text-slate-500 text-center mt-1">
                 Completed cycles: <span className="text-white font-bold">{state.cycleCount}</span>
               </div>
             </div>

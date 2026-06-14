@@ -1,3 +1,4 @@
+import { Play } from 'lucide-react';
 import React, { useState } from 'react';
 import type { AgentDecision } from '../engine/types';
 
@@ -41,13 +42,13 @@ export const DecisionCards: React.FC<DecisionCardsProps> = ({ decisions }) => {
   const getActionBadge = (action: string) => {
     switch (action) {
       case 'PLANT_TREES':
-        return '🌲 Afforestation';
+        return ' Afforestation';
       case 'WATER_CONSERVATION':
-        return '💧 Water Conservation';
+        return ' Water Conservation';
       case 'SOLAR_ADOPTION':
-        return '☀️ Solar Adoption';
+        return '️ Solar Adoption';
       default:
-        return '🔍 Monitor';
+        return ' Monitor';
     }
   };
 
@@ -57,7 +58,7 @@ export const DecisionCards: React.FC<DecisionCardsProps> = ({ decisions }) => {
         <h3 className="text-[#00ff55] font-mono text-sm tracking-wider uppercase font-semibold">
           Autonomous Interventions ({decisions.filter(d => d.action !== 'MONITOR').length})
         </h3>
-        <span className="text-[10px] font-mono text-slate-500">
+        <span className="text-xs font-mono text-slate-500">
           Source: LLM Planner Agent
         </span>
       </div>
@@ -82,7 +83,7 @@ export const DecisionCards: React.FC<DecisionCardsProps> = ({ decisions }) => {
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 flex-wrap">
                       <h4 className="text-white font-mono text-xs font-semibold">{decision.zoneName}</h4>
-                      <span className={`text-[9px] px-2 py-[2px] rounded-full uppercase tracking-wider font-bold ${getPriorityStyle(decision.priority)}`}>
+                      <span className={`text-xs px-2 py-[2px] rounded-full uppercase tracking-wider font-bold ${getPriorityStyle(decision.priority)}`}>
                         {decision.priority}
                       </span>
                     </div>
@@ -95,22 +96,22 @@ export const DecisionCards: React.FC<DecisionCardsProps> = ({ decisions }) => {
                     <span className={`text-xs font-mono font-bold block ${getActionColor(decision.action)}`}>
                       {getActionBadge(decision.action)}
                     </span>
-                    <span className="text-[10px] text-slate-500 font-mono">
+                    <span className="text-xs text-slate-500 font-mono">
                       Cost: ₹{decision.metrics.estimatedCost?.toLocaleString() || 0}
                     </span>
                   </div>
                 </div>
 
                 {/* Sub metrics details */}
-                <div className="px-4 pb-3 flex gap-3 flex-wrap border-b border-slate-900 text-[10px] text-slate-500 font-mono">
+                <div className="px-4 pb-3 flex gap-3 flex-wrap border-b border-slate-900 text-xs text-slate-500 font-mono">
                   {decision.metrics.treeCount && (
-                    <span>🌲 Trees: <strong className="text-slate-300">{decision.metrics.treeCount}</strong></span>
+                    <span> Trees: <strong className="text-slate-300">{decision.metrics.treeCount}</strong></span>
                   )}
                   {decision.metrics.waterGallons && (
-                    <span>💧 Gallons: <strong className="text-slate-300">{decision.metrics.waterGallons.toLocaleString()}</strong></span>
+                    <span> Gallons: <strong className="text-slate-300">{decision.metrics.waterGallons.toLocaleString()}</strong></span>
                   )}
                   {decision.metrics.solarPanelsCount && (
-                    <span>☀️ Panels: <strong className="text-slate-300">{decision.metrics.solarPanelsCount}</strong></span>
+                    <span>️ Panels: <strong className="text-slate-300">{decision.metrics.solarPanelsCount}</strong></span>
                   )}
                 </div>
 
@@ -119,16 +120,16 @@ export const DecisionCards: React.FC<DecisionCardsProps> = ({ decisions }) => {
                   <div>
                     <button 
                       onClick={() => toggleExpand(decision.zoneId)}
-                      className="w-full text-left px-4 py-2 bg-slate-900/40 text-[10px] text-slate-400 hover:text-white flex justify-between items-center transition-colors font-mono"
+                      className="w-full text-left px-4 py-2 bg-slate-900/40 text-xs text-slate-400 hover:text-white flex justify-between items-center transition-colors font-mono"
                     >
-                      <span>{isExpanded ? '▼ Hide LLM Reasoning Trace' : '▶ Show LLM Reasoning Trace'}</span>
-                      <span className="text-[#00ff55] text-[9px] border border-[#00ff55]/20 px-1 rounded bg-[#00ff55]/5">
+                      <span className="flex items-center gap-1">{isExpanded ? '▼ Hide LLM Reasoning Trace' : <><Play size={10} /> Show LLM Reasoning Trace</>}</span>
+                      <span className="text-[#00ff55] text-xs border border-[#00ff55]/20 px-1 rounded bg-[#00ff55]/5">
                         Claude-3.5-Sonnet
                       </span>
                     </button>
 
                     {isExpanded && (
-                      <div className="p-4 bg-[#030604] border-t border-slate-900 font-mono text-[10px] leading-relaxed text-slate-300 whitespace-pre-line border-l-2 border-l-[#00ff55]">
+                      <div className="p-4 bg-[#030604] border-t border-slate-900 font-mono text-xs leading-relaxed text-slate-300 whitespace-pre-line border-l-2 border-l-[#00ff55]">
                         {decision.llmReasoning}
                       </div>
                     )}

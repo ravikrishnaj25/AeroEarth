@@ -1,3 +1,4 @@
+import { Check, AlertTriangle, Skull, Info, Zap } from 'lucide-react';
 import React from 'react';
 import type { AgentNodeId } from '../engine/types';
 
@@ -31,13 +32,13 @@ export const ActivityFeed: React.FC<ActivityFeedProps> = ({ logs, currentNodeId,
   const getLogPrefix = (level: string) => {
     switch (level) {
       case 'success':
-        return '✓ [SUCCESS]';
+        return <><Check size={12} className="inline mr-1" />[SUCCESS]</>;
       case 'warning':
-        return '⚠ [WARNING]';
+        return <><AlertTriangle size={12} className="inline mr-1" />[WARNING]</>;
       case 'error':
-        return '☠ [CRITICAL]';
+        return <><Skull size={12} className="inline mr-1" />[CRITICAL]</>;
       default:
-        return 'ℹ [INFO]';
+        return <><Info size={12} className="inline mr-1" />[INFO]</>;
     }
   };
 
@@ -62,8 +63,8 @@ export const ActivityFeed: React.FC<ActivityFeedProps> = ({ logs, currentNodeId,
       <div className="flex-1 overflow-y-auto font-mono text-[11px] leading-relaxed space-y-2.5 pr-2 scrollbar-thin scrollbar-thumb-slate-800">
         {currentNodeId && (
           <div className="bg-[#002b0f]/20 border border-[#00ff55]/20 p-2.5 rounded-lg mb-3 animate-pulse">
-            <span className="text-[#00ff55] font-semibold">⚡ [EXECUTING] Node: {currentNodeId.toUpperCase()}</span>
-            <div className="text-[10px] text-slate-400 mt-1">
+            <span className="text-[#00ff55] font-semibold"><Zap size={12} /> [EXECUTING] Node: {currentNodeId.toUpperCase()}</span>
+            <div className="text-xs text-slate-400 mt-1">
               Analyzing telemetry grid... Connecting neural weights...
             </div>
           </div>
@@ -84,7 +85,7 @@ export const ActivityFeed: React.FC<ActivityFeedProps> = ({ logs, currentNodeId,
                 <span className="font-semibold mr-1.5 select-none">{getLogPrefix(log.level)}</span>
                 <span>{log.message}</span>
                 {log.node && (
-                  <span className="ml-2 bg-slate-900 border border-slate-800 text-slate-400 px-1 py-[1px] rounded text-[9px] uppercase font-semibold">
+                  <span className="ml-2 bg-slate-900 border border-slate-800 text-slate-400 px-1 py-[1px] rounded text-xs uppercase font-semibold">
                     {log.node}
                   </span>
                 )}
@@ -95,10 +96,10 @@ export const ActivityFeed: React.FC<ActivityFeedProps> = ({ logs, currentNodeId,
       </div>
 
       {/* CLI Simulated Footer */}
-      <div className="border-t border-[rgba(0,255,85,0.1)] pt-3 mt-3 flex items-center font-mono text-[10px] text-slate-500">
+      <div className="border-t border-[rgba(0,255,85,0.1)] pt-3 mt-3 flex items-center font-mono text-xs text-slate-500">
         <span className="text-[#00ff55] mr-2">ecoguardian-agent-cli&gt;</span>
         <span className="animate-pulse font-bold text-white">|</span>
-        <span className="ml-auto text-[9px] uppercase tracking-wider text-slate-500">
+        <span className="ml-auto text-xs uppercase tracking-wider text-slate-500">
           Agent System Connected (LLM: Claude-3.5)
         </span>
       </div>

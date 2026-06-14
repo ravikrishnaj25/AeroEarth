@@ -1,3 +1,4 @@
+import { Inbox, TrendingUp, AlertTriangle, Brain, BarChart2, Map, Link, CheckCircle, Check } from 'lucide-react';
 import React from 'react';
 import type { AgentNodeId } from '../engine/types';
 
@@ -9,19 +10,19 @@ interface AgentPipelineProps {
 interface PipelineStep {
   id: AgentNodeId;
   label: string;
-  icon: string;
+  icon: React.ReactNode;
   description: string;
 }
 
 const STEPS: PipelineStep[] = [
-  { id: 'ingest', label: 'Data Ingestion', icon: '📥', description: 'Fetch env sensors' },
-  { id: 'forecast', label: 'ML Forecasting', icon: '📈', description: 'Run multi-var models' },
-  { id: 'threshold', label: 'Policy Checks', icon: '⚠️', description: 'Detect violations' },
-  { id: 'reasoning', label: 'LLM Agent', icon: '🧠', description: 'Claude reasoning' },
-  { id: 'impact', label: 'Impact Sim', icon: '📊', description: 'Predict delta & ROI' },
-  { id: 'quest', label: 'Quest Engine', icon: '🗺️', description: 'Mobilize citizens' },
-  { id: 'blockchain', label: 'On-Chain NFT', icon: '⛓️', description: 'Notarize commitments' },
-  { id: 'verify', label: 'Verification', icon: '✅', description: 'Compare & calculate' }
+  { id: 'ingest', label: 'Data Ingestion', icon: <Inbox size={18} />, description: 'Fetch env sensors' },
+  { id: 'forecast', label: 'ML Forecasting', icon: <TrendingUp size={18} />, description: 'Run multi-var models' },
+  { id: 'threshold', label: 'Policy Checks', icon: <AlertTriangle size={18} />, description: 'Detect violations' },
+  { id: 'reasoning', label: 'LLM Agent', icon: <Brain size={18} />, description: 'Claude reasoning' },
+  { id: 'impact', label: 'Impact Sim', icon: <BarChart2 size={18} />, description: 'Predict delta & ROI' },
+  { id: 'quest', label: 'Quest Engine', icon: <Map size={18} />, description: 'Mobilize citizens' },
+  { id: 'blockchain', label: 'On-Chain NFT', icon: <Link size={18} />, description: 'Notarize commitments' },
+  { id: 'verify', label: 'Verification', icon: <CheckCircle size={18} />, description: 'Compare & calculate' }
 ];
 
 export const AgentPipeline: React.FC<AgentPipelineProps> = ({ currentNodeId, status }) => {
@@ -87,12 +88,12 @@ export const AgentPipeline: React.FC<AgentPipelineProps> = ({ currentNodeId, sta
               className={`flex flex-col items-center justify-between border rounded-xl p-3 text-center transition-all duration-300 ${cardStyle} ${glowStyle}`}
             >
               <div className={`w-10 h-10 rounded-full flex items-center justify-center border font-mono text-lg mb-2 ${iconStyle}`}>
-                {stepStatus === 'completed' ? '✓' : step.icon}
+                {stepStatus === 'completed' ? <Check size={18} /> : step.icon}
               </div>
               <div className="font-mono text-xs font-semibold tracking-wide truncate w-full">
                 {step.label}
               </div>
-              <div className="text-[10px] text-slate-400 mt-1 line-clamp-1">
+              <div className="text-xs text-slate-400 mt-1 line-clamp-1">
                 {step.description}
               </div>
 
