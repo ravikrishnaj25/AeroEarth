@@ -309,7 +309,7 @@ Open up `http://localhost:3000` and start saving the planet!
       <sub>Frontend & UI/UX Engineer</sub>
     </td>
     <td align="center">
-      <a href="https://github.com/call-meRavi-SHORT-CODE">
+      <a href="https://github.com/ravikrishnaj25">
         <img src="https://avatars.githubusercontent.com/u/139262612?v=4" width="100px;" alt="Ravikrishna" style="border-radius:50%;" /><br />
         <sub><b>@call-meRavi-SHORT-CODE</b></sub>
       </a><br />
