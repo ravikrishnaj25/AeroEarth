@@ -1,5 +1,5 @@
 ---
-title: EcoGuardian AQI Impact Predictor
+title: AeroEarth AQI Impact Predictor
 emoji: 🌍
 colorFrom: green
 colorTo: blue
@@ -10,7 +10,7 @@ app_file: app.py
 pinned: false
 ---
 
-# EcoGuardian — LSTM Backend (AQI Impact Prediction)
+# AeroEarth — LSTM Backend (AQI Impact Prediction)
 
 Predicts the environmental impact of **trees**, **vertical gardens**, and **air purifiers** using trained LSTM models, served via a Gradio interface (deployable on Hugging Face Spaces).
 

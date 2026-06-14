@@ -1,5 +1,5 @@
 /* ============================================================
-   EcoGuardian Agent Monitor — Earth-Tone Dark Professional Theme
+   AeroEarth Agent Monitor — Earth-Tone Dark Professional Theme
    Inspired by: AQI Panel  (#0f0d08 bg, warm dark cards, amber borders)
    ============================================================ */
 
@@ -89,6 +89,10 @@
   background-position: right 0.75rem center;
   background-size: 1rem;
   padding-right: 2.25rem !important;
+}
+.dashboard-select option {
+  background-color: #1e1a0c;
+  color: #e2d9c8;
 }
 .dashboard-select:focus {
   box-shadow: 0 0 0 2px rgba(180, 145, 60, 0.28);

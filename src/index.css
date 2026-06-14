@@ -61,8 +61,5 @@
 
   small { font-size: var(--font-size-xs); }
 
-  /* Ensure no text goes below 11px anywhere */
-  * {
-    min-font-size: 11px;
-  }
+
 }

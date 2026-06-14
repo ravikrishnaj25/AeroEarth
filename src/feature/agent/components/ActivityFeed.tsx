@@ -102,7 +102,7 @@ export const ActivityFeed: React.FC<ActivityFeedProps> = ({ logs, currentNodeId,
 
       {/* CLI Footer */}
       <div className="pt-3 mt-3 flex items-center font-mono text-[10px] text-amber-200/30" style={{ borderTop: '1px solid rgba(180,145,60,0.1)' }}>
-        <span className="text-emerald-400/80 mr-2">ecoguardian-agent-cli&gt;</span>
+        <span className="text-emerald-400/80 mr-2">aeroearth-agent-cli&gt;</span>
         <span className="animate-pulse font-bold text-amber-100/60">|</span>
         <span className="ml-auto uppercase tracking-wider text-[9px] font-sans font-semibold">
           Agent System Connected (LLM: Claude-3.5)

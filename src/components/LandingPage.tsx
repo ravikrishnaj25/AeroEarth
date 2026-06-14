@@ -3,6 +3,7 @@ import { Sun, Building2, Bug, Droplets, Home } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
+import * as THREE from 'three';
 
 // Helper component for stats rows
 const StatRow = ({ label, value, valueColor = 'rgba(255, 255, 255, 0.9)' }: { label: string; value: string; valueColor?: string }) => (
@@ -35,6 +36,161 @@ const StatRow = ({ label, value, valueColor = 'rgba(255, 255, 255, 0.9)' }: { la
     </span>
   </div>
 );
+
+const ThreeBackground = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const width = containerRef.current.clientWidth;
+    const height = containerRef.current.clientHeight;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 100);
+    camera.position.z = 20;
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    containerRef.current.appendChild(renderer.domElement);
+
+    // Create a particle sphere (representing Earth/ecosystem nodes)
+    const particleCount = 180;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
+
+    const radius = 9;
+    for (let i = 0; i < particleCount; i++) {
+      const u = Math.random();
+      const v = Math.random();
+      const theta = u * 2.0 * Math.PI;
+      const phi = Math.acos(2.0 * v - 1.0);
+
+      const x = radius * Math.sin(phi) * Math.cos(theta);
+      const y = radius * Math.sin(phi) * Math.sin(theta);
+      const z = radius * Math.cos(phi);
+
+      positions[i * 3] = x;
+      positions[i * 3 + 1] = y;
+      positions[i * 3 + 2] = z;
+
+      colors[i * 3] = 0.0;
+      colors[i * 3 + 1] = 0.6 + Math.random() * 0.4; // Emerald green tones
+      colors[i * 3 + 2] = 0.3 + Math.random() * 0.3;
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    const material = new THREE.PointsMaterial({
+      size: 0.12,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.65,
+      sizeAttenuation: true
+    });
+
+    const particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+
+    // Soft wireframe earth outline
+    const sphereGeo = new THREE.SphereGeometry(radius, 14, 14);
+    const sphereMat = new THREE.MeshBasicMaterial({
+      color: 0x00ff55,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.05
+    });
+    const wireframeSphere = new THREE.Mesh(sphereGeo, sphereMat);
+    scene.add(wireframeSphere);
+
+    // Connecting network lines
+    const lineMaterial = new THREE.LineBasicMaterial({
+      color: 0x00ff55,
+      transparent: true,
+      opacity: 0.1
+    });
+
+    const lineGeometry = new THREE.BufferGeometry();
+    const linePositions: number[] = [];
+
+    for (let i = 0; i < particleCount; i++) {
+      const x1 = positions[i * 3];
+      const y1 = positions[i * 3 + 1];
+      const z1 = positions[i * 3 + 2];
+
+      for (let j = i + 1; j < particleCount; j++) {
+        const x2 = positions[j * 3];
+        const y2 = positions[j * 3 + 1];
+        const z2 = positions[j * 3 + 2];
+
+        const dist = Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2 + (z1 - z2) ** 2);
+        if (dist < 4.0) {
+          linePositions.push(x1, y1, z1);
+          linePositions.push(x2, y2, z2);
+        }
+      }
+    }
+
+    lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+    const lines = new THREE.LineSegments(lineGeometry, lineMaterial);
+    scene.add(lines);
+
+    let animationFrameId: number;
+    const animate = () => {
+      animationFrameId = requestAnimationFrame(animate);
+
+      particles.rotation.y += 0.0012;
+      particles.rotation.x += 0.0004;
+      wireframeSphere.rotation.y += 0.0012;
+      wireframeSphere.rotation.x += 0.0004;
+      lines.rotation.y += 0.0012;
+      lines.rotation.x += 0.0004;
+
+      renderer.render(scene, camera);
+    };
+
+    animate();
+
+    const handleResize = () => {
+      if (!containerRef.current) return;
+      const w = containerRef.current.clientWidth;
+      const h = containerRef.current.clientHeight;
+
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('resize', handleResize);
+      renderer.dispose();
+      if (containerRef.current && renderer.domElement.parentNode) {
+        containerRef.current.removeChild(renderer.domElement);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: 0,
+        pointerEvents: 'none',
+      }}
+    />
+  );
+};
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -193,7 +349,7 @@ const LandingPage = () => {
     setIsPopupOpen(false);
     setTimeout(() => navigate(route), 200);
   };
-  const titleText = 'ECOGUARDIAN';
+  const titleText = 'AEROEARTH';
 
   return (
     <>
@@ -242,7 +398,7 @@ const LandingPage = () => {
             zIndex: 1,
           }}
         />
-        {/* Top Center - EcoGuardian Title */}
+        {/* Top Center - AeroEarth Title */}
         <div
           style={{
             display: 'flex',
@@ -425,8 +581,11 @@ const LandingPage = () => {
           width: '100%',
           backgroundColor: '#000000',
           padding: '6rem 2rem',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
+        <ThreeBackground />
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -436,6 +595,8 @@ const LandingPage = () => {
             width: '100%',
             maxWidth: '1400px',
             margin: '0 auto',
+            position: 'relative',
+            zIndex: 2,
           }}
         >
           {/* Left Side - Title & Description */}
@@ -827,8 +988,11 @@ const LandingPage = () => {
           width: '100%',
           backgroundColor: '#000000',
           padding: '6rem 2rem',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
+        <ThreeBackground />
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -838,6 +1002,8 @@ const LandingPage = () => {
             width: '100%',
             maxWidth: '1400px',
             margin: '0 auto',
+            position: 'relative',
+            zIndex: 2,
           }}
         >
           {/* Section Header */}
@@ -1312,7 +1478,6 @@ const LandingPage = () => {
         </motion.div>
       </div>
 
-      {/* Agent Mode Floating Button */}
       <motion.button
         onClick={() => navigate('/agent-monitor')}
         initial={{ opacity: 0, y: 20 }}
@@ -1341,7 +1506,6 @@ const LandingPage = () => {
           transition: 'all 0.3s ease'
         }}
       >
-        <span style={{ fontSize: '1.2rem' }}>🤖</span>
         Agent Mode
       </motion.button>
 

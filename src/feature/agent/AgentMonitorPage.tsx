@@ -14,6 +14,7 @@ const AgentMonitorPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedModel, setSelectedModel] = useState<'claude-3-5' | 'gpt-4o'>('claude-3-5');
   const [runInterval, setRunInterval] = useState<number>(45000);
+  const [showDisclaimer, setShowDisclaimer] = useState<boolean>(true);
 
   const { state, runCycle, clearLogs, isAutoRunning, toggleAutoRun } = useAgentEngine(runInterval);
 
@@ -23,6 +24,38 @@ const AgentMonitorPage: React.FC = () => {
 
   return (
     <div className="agent-dashboard min-h-screen pb-16">
+      {showDisclaimer && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+          <div 
+            style={{ 
+              background: 'rgba(24, 20, 10, 0.95)', 
+              borderColor: 'rgba(180, 145, 60, 0.3)',
+              boxShadow: '0 0 50px rgba(180, 145, 60, 0.15), 0 20px 50px rgba(0, 0, 0, 0.8)',
+              maxWidth: '520px'
+            }} 
+            className="w-full rounded-2xl border p-6 text-center space-y-4 crt-effect"
+          >
+            <div className="flex justify-center text-amber-500 mb-2">
+              <Shield size={48} className="animate-pulse" />
+            </div>
+            <h2 className="text-lg font-bold text-amber-200 uppercase tracking-wider">
+              Simulation Environment Disclaimer
+            </h2>
+            <p className="text-xs leading-relaxed text-amber-100/75">
+              Please note that the AeroEarth Agent Monitor runs on <strong>historical simulation profiles and pre-compiled test results</strong> rather than real-time production telemetry. This interface serves to demonstrate the autonomous agent execution pipeline, policy verification controls, and safety checks in a sandboxed staging environment.
+            </p>
+            <div className="pt-2">
+              <button
+                onClick={() => setShowDisclaimer(false)}
+                className="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-slate-900 rounded-xl text-xs font-bold uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all cursor-pointer shadow-lg"
+                style={{ boxShadow: '0 4px 15px rgba(52, 211, 153, 0.3)' }}
+              >
+                Acknowledge & Proceed
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ── Header ─────────────────────────────────────────── */}
       <header
@@ -45,7 +78,7 @@ const AgentMonitorPage: React.FC = () => {
           <div>
             <h1 className="text-white text-[15px] font-bold tracking-wide flex items-center gap-2.5">
               <Shield size={17} className="text-emerald-400" />
-              <span>EcoGuardian <span className="text-emerald-400">Agent</span> Monitor</span>
+              <span>AeroEarth <span className="text-emerald-400">Agent</span> Monitor</span>
             </h1>
             <p className="text-[11px] text-amber-200/35 mt-0.5 font-medium tracking-wide">
               Autonomous AI-driven climate protection planner
@@ -99,7 +132,7 @@ const AgentMonitorPage: React.FC = () => {
                     onChange={(e) => setSelectedModel(e.target.value as any)}
                     className="w-full dashboard-select text-xs text-amber-100/90 font-medium rounded-xl py-2.5 pl-3 transition-all"
                   >
-                    <option value="claude-3-5">Claude 3.5 Sonnet (Recom.)</option>
+                    <option value="claude-3-5">Claude 3.5 Sonnet</option>
                     <option value="gpt-4o">GPT-4o (Reasoning Mode)</option>
                   </select>
                 </div>
