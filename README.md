@@ -4,9 +4,8 @@
 </h2>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=800&color=27AE60&center=true&vCenter=true&width=800&lines=AeroEarth+%E2%80%94+Climate+%C3%97+Blockchain;3D+Earth+%7C+Green+Actions+%7C+On-Chain+Truth;Sustainable+Web3+Platform" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=800&color=27AE60&center=true&vCenter=true&width=900&lines=AeroEarth+%E2%80%94+Agentic+AI+for+Climate+Action;Autonomous+Environmental+Intelligence;Predict+%E2%86%92+Reason+%E2%86%92+Act+%E2%86%92+Verify;AI+Agents+%7C+3D+Earth+%7C+Blockchain;Fighting+Pollution+Before+It+Happens" alt="Typing SVG" />
 </p>
-
 
 <p align="center">
   <img src="https://img.shields.io/badge/blockchain-algorand-black.svg?style=flat-square&logo=algorand&logoColor=white" />
@@ -25,8 +24,7 @@
 
 ## ✨ Demo
 
-`AeroChain` Decentralized platform that connects atmospheric intelligence with Earth-scale visualization using blockchain:
-
+`AeroEarth` — An Agentic AI Climate Platform that transforms atmospheric intelligence into real-world environmental action through Earth-scale visualization and blockchain-verified impact.
 
 <!-- ☀️ Solar & 💧 Water Full Width Side by Side -->
 <p align="center">
@@ -44,20 +42,28 @@
 <h2 align="center">The Problem We're Solving</h2>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/❌-Lack_of_Transparency-red?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/❌-Lack_of_Engagement-red?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/❌-Greenwashing-red?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/❌-Climate_Data_without_Action-red?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/❌-No_Autonomous_Decision_Making-red?style=for-the-badge"/>
 </p>
 
 <br/>
 
-Right now, climate action suffers from two massive problems: **lack of transparency** and **lack of engagement**. 
+Climate action faces three critical challenges.
 
-People and companies claim to plant trees or reduce emissions, but how do we *prove* it? And for the everyday user, environmental dashboards are just boring spreadsheets. 
+Most sustainability initiatives lack transparency. Organizations claim carbon reductions, tree plantations, and environmental impact, yet there is often no verifiable proof that these actions produced measurable results. This has enabled widespread greenwashing.
 
-AeroEarth fixes both:
-1. **Gamified Action:** We turn climate awareness into an immersive 3D experience using CesiumJS.
-2. **Absolute Proof:** By storing both the starting pollution data and the user's mitigation actions (carbon offsets) on-chain, we create a transparent, tamper-proof record of who is actually helping the planet.
+At the same time, massive amounts of environmental data are generated every day through air quality sensors, water monitoring systems, and satellites. However, this data rarely leads to meaningful action. It remains trapped inside dashboards that people rarely engage with.
 
+The deeper problem is that environmental systems still depend on humans to interpret data and decide what to do next. By the time someone reacts, the opportunity to prevent pollution events may already be gone.
+
+**AeroEarth solves all three problems:**
+
+1. **Autonomous Climate Intelligence** – AI agents continuously monitor air quality, water quality, and solar data, predict environmental risks, and recommend interventions before problems escalate.
+
+2. **Immersive Earth-Scale Engagement** – A real-time CesiumJS 3D Earth transforms environmental monitoring into interactive missions, live pollution visualization, and community-driven climate action.
+
+3. **Blockchain-Verified Accountability** – Every prediction, intervention, and outcome is permanently recorded on-chain, creating an immutable record of environmental promises versus real-world results.
 
 
 <h2 align="center">
@@ -65,26 +71,29 @@ AeroEarth fixes both:
 </h2>
 
 <p align="center">
-  AeroEarth addresses the core challenges of climate action by combining engagement with verifiable accountability.
+  AeroEarth transforms environmental data into measurable climate action through autonomous AI agents, immersive Earth-scale visualization, and blockchain-verified accountability.
 </p>
 
 <br><br>
 
 <!-- 🌍 Main Demo Image Full Width -->
 <p align="center">
-  <img src="assest/gg.gif" width="70%" alt="demo"/>
+  <img src="assest/gg.gif" width="70%" alt="AeroEarth Demo"/>
 </p>
 
+### What Makes AeroEarth Different
 
-1. **Gamified Climate Action:**  
-   We transform climate awareness into an immersive 3D Earth experience powered by CesiumJS. Instead of static dashboards, users interact with real-world environmental data in a dynamic and intuitive way.
-   
+#### 1. Autonomous Climate Intelligence
+AeroEarth continuously monitors air quality, water quality, and solar irradiance data from multiple sources. Its AI agents predict environmental risks before they occur, reason about the most effective interventions, and generate actionable climate missions automatically.
 
-2. **On-Chain Transparency:**  
-   Both the baseline pollution data and user mitigation actions are stored on-chain. This creates a transparent, tamper-proof, and publicly verifiable record of measurable climate impact.
+#### 2. Earth-Scale Environmental Visualization
+Powered by CesiumJS, AeroEarth transforms environmental monitoring into an interactive 3D Earth experience. Users can explore pollution hotspots, analyze environmental conditions in real time, and view AI-generated interventions directly on the globe.
 
-<br/>
+#### 3. Blockchain-Verified Accountability
+Every prediction, intervention, and environmental outcome is recorded on-chain. By storing both baseline environmental conditions and verified results, AeroEarth creates a transparent and tamper-proof record of climate commitments and their real-world impact.
 
+#### 4. From Data to Action
+Unlike traditional dashboards that only display information, AeroEarth follows a complete autonomous workflow: **Perceive → Predict → Reason → Act → Verify**. The platform transforms environmental intelligence into measurable climate action through continuous monitoring, decision-making, execution, and verification.
 
 
 
@@ -315,12 +324,6 @@ Open up `http://localhost:3000` and start saving the planet!
       </a><br />
       <sub>Blockchain Engineer</sub>
     </td>
-        <td align="center">
-      <a href="https://github.com/R-Shanmuga18">
-        <img src="https://ik.imagekit.io/xhelios/screenshot-2026-03-25_19-40-31.png" width="100px;" alt="Shanmuga" style="border-radius:50%;" /><br />
-        <sub><b>@R-Shanmuga18</b></sub>
-      </a><br />
-      <sub>VR Engineer</sub>
-    </td>
+      
   </tr>
 </table>
