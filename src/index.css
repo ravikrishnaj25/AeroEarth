@@ -1,13 +1,68 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
+  :root {
+    /* Professional Typography Scale (based on 16px base) */
+    --font-size-xs: 0.75rem;     /* 12px - smallest allowed */
+    --font-size-sm: 0.8125rem;   /* 13px - captions, labels */
+    --font-size-base: 0.875rem;  /* 14px - body text */
+    --font-size-md: 1rem;        /* 16px - prominent body */
+    --font-size-lg: 1.125rem;    /* 18px - section subheads */
+    --font-size-xl: 1.25rem;     /* 20px - card titles */
+    --font-size-2xl: 1.5rem;     /* 24px - section headings */
+    --font-size-3xl: 1.875rem;   /* 30px - page headings */
+    --font-size-4xl: 2.25rem;    /* 36px - hero subheading */
+    --font-size-5xl: 3rem;       /* 48px - hero heading */
+
+    /* Line Heights */
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+
+    /* Letter Spacing */
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0em;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.05em;
+    --tracking-widest: 0.1em;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
   body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: var(--font-size-base);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-normal);
+    font-weight: 400;
     background-color: #ffffff;
     color: #166534;
     margin: 0;
     padding: 0;
     min-height: 100vh;
+  }
+
+  /* Heading defaults */
+  h1 { font-size: var(--font-size-3xl); font-weight: 700; line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); }
+  h2 { font-size: var(--font-size-2xl); font-weight: 700; line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); }
+  h3 { font-size: var(--font-size-xl); font-weight: 600; line-height: var(--leading-snug); }
+  h4 { font-size: var(--font-size-lg); font-weight: 600; line-height: var(--leading-snug); }
+  h5 { font-size: var(--font-size-md); font-weight: 600; line-height: var(--leading-snug); }
+  h6 { font-size: var(--font-size-base); font-weight: 600; line-height: var(--leading-normal); }
+
+  p { font-size: var(--font-size-base); line-height: var(--leading-relaxed); }
+
+  small { font-size: var(--font-size-xs); }
+
+  /* Ensure no text goes below 11px anywhere */
+  * {
+    min-font-size: 11px;
   }
 }
