@@ -277,19 +277,19 @@ function AqiCesiumApp() {
     },
     {
       target: 'tool-tree',
-      title: 'Plant a Tree 🌳',
+      title: 'Plant a Tree ',
       description: 'Select the tree tool and click on the map to plant a tree. Each tree absorbs ~18 kg CO₂/year and reduces AQI by ~2 points in a 20m radius.',
       placement: 'left',
     },
     {
       target: 'tool-garden',
-      title: 'Vertical Garden 🌿',
+      title: 'Vertical Garden ',
       description: 'Paint vertical gardens on building walls. They reduce AQI by up to 15 points, drop temperature by ~2°C, and cut noise by ~5 dB.',
       placement: 'left',
     },
     {
       target: 'tool-purifier',
-      title: 'Air Purifier 💨',
+      title: 'Air Purifier ',
       description: 'Place indoor air purifiers in buildings. They reduce indoor PM2.5 by up to 86%% with a CADR of 386 m³/hr. Great for high-AQI zones.',
       placement: 'left',
       onLeave: () => {

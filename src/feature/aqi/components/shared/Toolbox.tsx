@@ -18,6 +18,7 @@ export const Toolbox: React.FC<ToolboxProps> = ({ viewer, forceOpen }) => {
     // Respond to forceOpen prop from tour
     useEffect(() => {
         if (forceOpen !== undefined) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setIsOpen(forceOpen);
         }
     }, [forceOpen]);
@@ -25,6 +26,7 @@ export const Toolbox: React.FC<ToolboxProps> = ({ viewer, forceOpen }) => {
     // Initialize Manager once viewer is ready
     useEffect(() => {
         if (viewer && !manager) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setManager(new PlacementManager(viewer));
         }
     }, [viewer, manager]);
@@ -127,9 +129,9 @@ export const Toolbox: React.FC<ToolboxProps> = ({ viewer, forceOpen }) => {
                                 onClick={() => handleToolClick(key as ToolType)}
                             >
                                 <div className="tool-icon">
-                                    {key === 'tree' && '🌳'}
-                                    {key === 'garden' && '🌿'}
-                                    {key === 'purifier' && '💨'}
+                                    {key === 'tree' && ''}
+                                    {key === 'garden' && ''}
+                                    {key === 'purifier' && ''}
                                 </div>
                                 <div className="tool-info">
                                     <h3>{tool.name}</h3>

@@ -1,3 +1,4 @@
+import { DoorOpen } from 'lucide-react';
 import React, { useEffect, useRef, useCallback, useState } from 'react';
 import * as Cesium from 'cesium';
 
@@ -408,7 +409,7 @@ export const ImmersiveVRScene: React.FC<ImmersiveVRSceneProps> = ({ viewer, onEx
           pointerEvents: 'auto'
         }}
       >
-        🚪 Exit VR Mode
+        <DoorOpen className="mr-2 w-5 h-5" /> Exit VR Mode
       </button>
       
       {/* VR Status indicator */}
