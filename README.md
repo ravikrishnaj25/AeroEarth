@@ -1,7 +1,5 @@
 
-<h2 align="center">
-  <img src="assest/ascii-art-text.png" alt="AeroEarth Header" width="700"/>
-</h2>
+
 
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=800&color=27AE60&center=true&vCenter=true&width=900&lines=AeroEarth+%E2%80%94+Agentic+AI+for+Climate+Action;Autonomous+Environmental+Intelligence;Predict+%E2%86%92+Reason+%E2%86%92+Act+%E2%86%92+Verify;AI+Agents+%7C+3D+Earth+%7C+Blockchain;Fighting+Pollution+Before+It+Happens" alt="Typing SVG" />
@@ -78,7 +76,7 @@ The deeper problem is that environmental systems still depend on humans to inter
 
 <!-- 🌍 Main Demo Image Full Width -->
 <p align="center">
-  <img src="assest/gg.gif" width="70%" alt="AeroEarth Demo"/>
+  <img src="assest/agent.png" width="70%" alt="AeroEarth Demo"/>
 </p>
 
 ### What Makes AeroEarth Different
@@ -217,11 +215,11 @@ The agent runs as a **directed acyclic graph (DAG)** of 8 specialized nodes, eac
 
 <div align="center">
 
-| Model | Description | Space |
-|:------|:------------|:-----:|
-| 🌫️ **AQI LSTM** | Air Quality Index prediction using LSTM neural network | [Live Demo ➜](https://huggingface.co/spaces/Ravikrishna-25/AQL-model) |
-| 💧 **Water LSTM** | Water quality forecasting with time-series deep learning | [Live Demo ➜](https://huggingface.co/spaces/Ravikrishna-25/Water-LSTM) |
-| ☀️ **Solar LSTM** | Solar energy output prediction using sequential models | [Live Demo ➜](https://huggingface.co/spaces/Ravikrishna-25/Solar-LSTM) |
+| Model | Description |
+|:------|:------------|
+| AQI LSTM | Air Quality Index prediction using LSTM neural network |
+| Water LSTM | Water quality forecasting with time-series deep learning |
+| Solar LSTM | Solar energy output prediction using sequential models |
 
 </div>
 
