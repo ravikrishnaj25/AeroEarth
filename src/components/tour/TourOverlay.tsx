@@ -1,3 +1,4 @@
+import { Check } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { TourStep } from './useTour';
@@ -43,6 +44,7 @@ const TourOverlay: React.FC<TourOverlayProps> = ({
   // Calculate highlight position when step changes (viewport-relative / fixed)
   useEffect(() => {
     if (!isActive || isWelcomeScreen || !currentStepData) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setHighlightRect(null);
       return;
     }
@@ -418,7 +420,7 @@ const TourOverlay: React.FC<TourOverlayProps> = ({
                   <span
                     style={{
                       fontFamily: "'Space Grotesk', sans-serif",
-                      fontSize: '0.7rem',
+                      fontSize: '0.8125rem',
                       color: '#00ff55',
                       letterSpacing: '0.2em',
                       textTransform: 'uppercase',
@@ -478,7 +480,7 @@ const TourOverlay: React.FC<TourOverlayProps> = ({
                     onClick={onSkip}
                     style={{
                       fontFamily: "'Space Grotesk', sans-serif",
-                      fontSize: '0.85rem',
+                      fontSize: '0.875rem',
                       color: 'rgba(255, 255, 255, 0.4)',
                       background: 'transparent',
                       border: 'none',
@@ -528,7 +530,7 @@ const TourOverlay: React.FC<TourOverlayProps> = ({
                         boxShadow: '0 0 15px rgba(0, 255, 85, 0.15)',
                       }}
                     >
-                      {currentStep === totalSteps - 1 ? 'Finish ✓' : 'Next →'}
+                      {currentStep === totalSteps - 1 ? <span className="flex items-center gap-1">Finish <Check size={14} /></span> : 'Next →'}
                     </motion.button>
                   </div>
                 </div>

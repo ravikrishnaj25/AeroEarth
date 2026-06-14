@@ -1,3 +1,4 @@
+import { Link } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 
 interface BlockchainLoaderProps {
@@ -46,12 +47,12 @@ const BlockchainLoader: React.FC<BlockchainLoaderProps> = ({
             animation: 'pulse 1.5s infinite',
           }}
         >
-          ⛓️
+          <Link size={48} />
         </div>
         <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 8 }}>
           Connecting to Algorand Blockchain
         </h2>
-        <p style={{ fontSize: 14, opacity: 0.7, marginBottom: 20 }}>
+        <p style={{ fontSize: 15, opacity: 0.7, marginBottom: 20 }}>
           Fetching decentralized {dataType} data from the chain...
         </p>
         <div

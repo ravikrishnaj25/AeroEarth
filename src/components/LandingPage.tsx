@@ -1,7 +1,40 @@
 import { useNavigate } from 'react-router-dom';
+import { Sun, Building2, Bug, Droplets, Home } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
+
+// Helper component for stats rows
+const StatRow = ({ label, value, valueColor = 'rgba(255, 255, 255, 0.9)' }: { label: string; value: string; valueColor?: string }) => (
+  <div
+    style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '0.5rem 0',
+    }}
+  >
+    <span
+      style={{
+        fontFamily: "'Space Grotesk', sans-serif",
+        fontSize: '0.9rem',
+        color: 'rgba(255, 255, 255, 0.5)',
+      }}
+    >
+      {label}
+    </span>
+    <span
+      style={{
+        fontFamily: "'Space Grotesk', sans-serif",
+        fontSize: '0.95rem',
+        fontWeight: 500,
+        color: valueColor,
+      }}
+    >
+      {value}
+    </span>
+  </div>
+);
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -24,7 +57,7 @@ const LandingPage = () => {
   const competitors = [
     {
       name: 'Solargis / Augos',
-      icon: '☀️',
+      icon: <Sun size={24} />,
       strengths: 'Highly accurate PV yield estimations and established industry reputation.',
       weaknesses: 'Restricted to 2D mapping environment, Absence of rain/pollution integration',
       edgeTitle: 'Democratized 3D analysis with click-to-predict multi-feature overlays.',
@@ -32,7 +65,7 @@ const LandingPage = () => {
     },
     {
       name: 'Esri ArcGIS Urban',
-      icon: '🏙️',
+      icon: <Building2 size={24} />,
       strengths: 'Procedural city generation with deep GIS integration capabilities.',
       weaknesses: 'Expensive ($10K+/yr), Steep learning curve for new users',
       edgeTitle: 'CesiumJS web-free platform with gamified UX for homeowners.',
@@ -40,7 +73,7 @@ const LandingPage = () => {
     },
     {
       name: 'Ladybug / SimStadt',
-      icon: '🐞',
+      icon: <Bug size={24} />,
       strengths: 'Advanced solar simulations in Rhino/Grasshopper environments.',
       weaknesses: 'Offline-only, Architect-focused, No commercial pitch tools',
       edgeTitle: 'Real-time Cesium + commercial ROI calculator built-in.',
@@ -48,7 +81,7 @@ const LandingPage = () => {
     },
     {
       name: 'DROP (Rain)',
-      icon: '💧',
+      icon: <Droplets size={24} />,
       strengths: 'Rainwater harvest sizing calculations and water management.',
       weaknesses: '2D static visualizations, No 3D or solar integration',
       edgeTitle: 'Integrated 3D with wind & groundwater visualization.',
@@ -56,7 +89,7 @@ const LandingPage = () => {
     },
     {
       name: 'CleanMax (India)',
-      icon: '🏠',
+      icon: <Home size={24} />,
       strengths: 'Established rooftop solar installation network in India.',
       weaknesses: 'No visualization tools, Limited digital engagement',
       edgeTitle: 'Your SaaS platform convinces their leads.',
@@ -161,38 +194,6 @@ const LandingPage = () => {
     setTimeout(() => navigate(route), 200);
   };
   const titleText = 'ECOGUARDIAN';
-
-  // Helper component for stats rows
-  const StatRow = ({ label, value, valueColor = 'rgba(255, 255, 255, 0.9)' }: { label: string; value: string; valueColor?: string }) => (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '0.5rem 0',
-      }}
-    >
-      <span
-        style={{
-          fontFamily: "'Space Grotesk', sans-serif",
-          fontSize: '0.9rem',
-          color: 'rgba(255, 255, 255, 0.5)',
-        }}
-      >
-        {label}
-      </span>
-      <span
-        style={{
-          fontFamily: "'Space Grotesk', sans-serif",
-          fontSize: '0.95rem',
-          fontWeight: 500,
-          color: valueColor,
-        }}
-      >
-        {value}
-      </span>
-    </div>
-  );
 
   return (
     <>
@@ -322,7 +323,7 @@ const LandingPage = () => {
               <span
                 style={{
                   fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: '0.85rem',
+                  fontSize: '0.875rem',
                   color: '#00ff55',
                   letterSpacing: '0.25em',
                   textTransform: 'uppercase',
@@ -459,7 +460,7 @@ const LandingPage = () => {
                 <span
                   style={{
                     fontFamily: "'Space Grotesk', sans-serif",
-                    fontSize: '0.75rem',
+                    fontSize: '0.8125rem',
                     color: '#00ff55',
                     letterSpacing: '0.25em',
                     textTransform: 'uppercase',
@@ -656,7 +657,7 @@ const LandingPage = () => {
                             <span
                               style={{
                                 fontFamily: "'Space Grotesk', sans-serif",
-                                fontSize: '0.75rem',
+                                fontSize: '0.8125rem',
                                 color: 'rgba(255, 255, 255, 0.4)',
                                 letterSpacing: '0.1em',
                                 textTransform: 'uppercase',
@@ -672,7 +673,7 @@ const LandingPage = () => {
                           <span
                             style={{
                               fontFamily: "'Space Grotesk', sans-serif",
-                              fontSize: '0.7rem',
+                              fontSize: '0.8125rem',
                               color: 'rgba(255, 255, 255, 0.4)',
                               letterSpacing: '0.15em',
                               textTransform: 'uppercase',
@@ -700,7 +701,7 @@ const LandingPage = () => {
                           <span
                             style={{
                               fontFamily: "'Space Grotesk', sans-serif",
-                              fontSize: '0.7rem',
+                              fontSize: '0.8125rem',
                               color: 'rgba(255, 255, 255, 0.4)',
                               letterSpacing: '0.15em',
                               textTransform: 'uppercase',
@@ -731,7 +732,7 @@ const LandingPage = () => {
                           <span
                             style={{
                               fontFamily: "'Space Grotesk', sans-serif",
-                              fontSize: '0.7rem',
+                              fontSize: '0.8125rem',
                               color: 'rgba(255, 255, 255, 0.3)',
                               letterSpacing: '0.1em',
                               textTransform: 'uppercase',
@@ -758,7 +759,7 @@ const LandingPage = () => {
                         <span
                           style={{
                             fontFamily: "'Space Grotesk', sans-serif",
-                            fontSize: '0.7rem',
+                            fontSize: '0.8125rem',
                             color: '#00ff55',
                             letterSpacing: '0.2em',
                             textTransform: 'uppercase',
@@ -853,7 +854,7 @@ const LandingPage = () => {
               <span
                 style={{
                   fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: '0.75rem',
+                  fontSize: '0.8125rem',
                   color: '#00ff55',
                   letterSpacing: '0.25em',
                   textTransform: 'uppercase',
@@ -1039,7 +1040,7 @@ const LandingPage = () => {
                             background: activeAqiOption === 'purifier' ? 'rgba(100, 150, 255, 0.2)' : 'rgba(0, 255, 85, 0.15)',
                             color: activeAqiOption === 'purifier' ? '#6496ff' : '#00ff55',
                             fontFamily: "'Space Grotesk', sans-serif",
-                            fontSize: '0.7rem',
+                            fontSize: '0.8125rem',
                             marginTop: '0.5rem',
                           }}
                         >
@@ -1176,7 +1177,7 @@ const LandingPage = () => {
                         background: 'rgba(100, 150, 255, 0.15)',
                         color: '#6496ff',
                         fontFamily: "'Space Grotesk', sans-serif",
-                        fontSize: '0.7rem',
+                        fontSize: '0.8125rem',
                         marginTop: '0.5rem',
                       }}
                     >
@@ -1248,7 +1249,7 @@ const LandingPage = () => {
               >
                 <div style={{ textAlign: 'center' }}>
                   <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>☀️</div>
-                  <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.75rem', color: '#ff9632', letterSpacing: '0.2em', marginBottom: '0.5rem' }}>SOLAR YIELD</div>
+                  <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.8125rem', color: '#ff9632', letterSpacing: '0.2em', marginBottom: '0.5rem' }}>SOLAR YIELD</div>
                   <div style={{ fontSize: '4rem', fontFamily: "'Outfit', sans-serif", fontWeight: 700, color: '#ff9632', lineHeight: 1 }}>19.66 kW</div>
                   <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.4)', marginBottom: '1.5rem' }}>Estimated System Size</div>
                   <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: '2.5rem', fontWeight: 700, color: '#ffffff' }}>₹21,045</div>
@@ -1284,7 +1285,7 @@ const LandingPage = () => {
                         background: 'rgba(255, 150, 50, 0.15)',
                         color: '#ff9632',
                         fontFamily: "'Space Grotesk', sans-serif",
-                        fontSize: '0.7rem',
+                        fontSize: '0.8125rem',
                         marginTop: '0.5rem',
                       }}
                     >
@@ -1500,7 +1501,7 @@ const LandingPage = () => {
                 transition={{ delay: 0.5 }}
                 style={{
                   fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: '0.85rem',
+                  fontSize: '0.875rem',
                   color: '#00ff55',
                   margin: 0,
                   letterSpacing: '0.1em',
