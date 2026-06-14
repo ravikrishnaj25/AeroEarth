@@ -6,18 +6,18 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/blockchain-algorand-black.svg?style=flat-square&logo=algorand&logoColor=white" />
-  <img src="https://img.shields.io/badge/avm-smart_contracts-blue.svg?style=flat-square" />
-  <img src="https://img.shields.io/badge/typescript-puyats-3178C6.svg?style=flat-square&logo=typescript&logoColor=white" />
-  <img src="https://img.shields.io/badge/frontend-next.js_15-black.svg?style=flat-square&logo=nextdotjs" />
-  <img src="https://img.shields.io/badge/ui-react-61DAFB.svg?style=flat-square&logo=react&logoColor=black" />
-
-
-  <img src="https://img.shields.io/badge/3d-cesiumjs-00B3A4.svg?style=flat-square" />
-  <img src="https://img.shields.io/badge/styling-tailwindcss-38BDF8.svg?style=flat-square&logo=tailwindcss&logoColor=white" />
-  <img src="https://img.shields.io/badge/tooling-algokit-purple.svg?style=flat-square" />
-  <img src="https://img.shields.io/badge/explorer-lora-orange.svg?style=flat-square" />
-  <img src="https://img.shields.io/badge/backend-next.js_api_routes-black.svg?style=flat-square&logo=vercel" />
+  <img src="https://img.shields.io/badge/AI-Agentic_AI-success?style=flat-square" />
+  <img src="https://img.shields.io/badge/ML-LSTM_Models-orange?style=flat-square" />
+  <img src="https://img.shields.io/badge/Climate-Intelligence-2E8B57?style=flat-square" />
+  <img src="https://img.shields.io/badge/Blockchain-Algorand-black?style=flat-square&logo=algorand&logoColor=white" />
+  <img src="https://img.shields.io/badge/Smart_Contracts-AVM-blue?style=flat-square" />
+  <img src="https://img.shields.io/badge/Frontend-Next.js_15-black?style=flat-square&logo=nextdotjs" />
+  <img src="https://img.shields.io/badge/Language-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/UI-React-61DAFB?style=flat-square&logo=react&logoColor=black" />
+  <img src="https://img.shields.io/badge/3D-CesiumJS-00B3A4?style=flat-square" />
+  <img src="https://img.shields.io/badge/Styling-TailwindCSS-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/Models-Hugging_Face-yellow?style=flat-square" />
+  <img src="https://img.shields.io/badge/Platform-Earth_Scale-228B22?style=flat-square" />
 </p>
 
 ## ✨ Demo
