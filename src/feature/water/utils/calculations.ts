@@ -312,7 +312,7 @@ export function createEnhancedWaterIndicator(
   ctx.fillStyle = "#60a5fa";
   ctx.font = "bold 20px Inter, Arial, sans-serif";
   ctx.textAlign = "center";
-  ctx.fillText("💧 WATER HARVEST ANALYSIS", centerX, yPos);
+  ctx.fillText(" WATER HARVEST ANALYSIS", centerX, yPos);
 
   // Building Dimensions Section
   yPos += 40;
@@ -398,7 +398,7 @@ export function createEnhancedWaterIndicator(
   ctx.textAlign = "center";
   ctx.font = "bold 16px Inter, Arial, sans-serif";
   ctx.fillStyle = isRaining ? "#22c55e" : "#f97316";
-  ctx.fillText(isRaining ? "🌧️ RAIN ACTIVE" : "☀️ NO RAIN", centerX, yPos);
+  ctx.fillText(isRaining ? " RAIN ACTIVE" : " NO RAIN", centerX, yPos);
 
   // Rain Parameters
   yPos += 40;

@@ -136,7 +136,7 @@ export function createSolarIndicator(data: SolarData): HTMLCanvasElement {
     ctx.fillStyle = "#eab308";
     ctx.font = "bold 24px Inter, Arial, sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText("☀️ SOLAR YIELD", centerX, yPos);
+    ctx.fillText(" SOLAR YIELD", centerX, yPos);
 
     // System Size
     yPos += 70;
