@@ -2,84 +2,84 @@ import { TreePine, Droplets, Sun, Search, Link, Check } from 'lucide-react';
 import React from 'react';
 import type { NFTRecord } from '../engine/types';
 
-interface BlockchainLogProps {
-  nfts: NFTRecord[];
-}
+interface BlockchainLogProps { nfts: NFTRecord[]; }
 
 export const BlockchainLog: React.FC<BlockchainLogProps> = ({ nfts }) => {
-  const getActionEmoji = (actionType: string) => {
-    switch (actionType) {
-      case 'PLANT_TREES':
-        return <TreePine size={12} />;
-      case 'WATER_CONSERVATION':
-        return <Droplets size={12} />;
-      case 'SOLAR_ADOPTION':
-        return <Sun size={12} />;
-      default:
-        return <Search size={12} />;
-    }
+  const actionIcon = (t: string) => {
+    if (t === 'PLANT_TREES')       return <TreePine size={12} className="inline mr-1 text-emerald-400" />;
+    if (t === 'WATER_CONSERVATION')return <Droplets size={12} className="inline mr-1 text-sky-400" />;
+    if (t === 'SOLAR_ADOPTION')    return <Sun size={12} className="inline mr-1 text-amber-400" />;
+    return <Search size={12} className="inline mr-1 text-amber-200/50" />;
   };
 
   return (
-    <div className="w-full bg-[#0a0f0d] border border-[rgba(0,255,85,0.15)] rounded-2xl p-5 shadow-[0_0_20px_rgba(0,255,85,0.02)] flex flex-col h-[480px]">
-      <div className="flex justify-between items-center mb-4 border-b border-[rgba(0,255,85,0.1)] pb-3">
+    <div className="w-full glass-panel p-5 flex flex-col h-[480px] shadow-lg">
+      <div className="flex justify-between items-center mb-4 pb-3" style={{ borderBottom: '1px solid rgba(180,145,60,0.1)' }}>
         <div className="flex items-center gap-2">
-          <span className="text-sm"><Link size={12} /></span>
-          <h3 className="text-[#00ff55] font-mono text-sm tracking-wider uppercase font-semibold">
+          <Link size={13} className="text-amber-400/70" />
+          <h3 className="text-amber-200/80 font-semibold text-sm tracking-wider uppercase">
             On-Chain Notarization Ledger
           </h3>
         </div>
-        <span className="text-xs font-mono bg-purple-900/30 text-purple-400 border border-purple-500/20 px-2 py-0.5 rounded-full font-bold">
+        <span
+          className="text-[9px] text-purple-400 uppercase tracking-wider font-bold px-2.5 py-0.5 rounded-full"
+          style={{ background: 'rgba(168,85,247,0.08)', border: '1px solid rgba(168,85,247,0.2)' }}
+        >
           Polygon Amoy Testnet
         </span>
       </div>
 
-      <div className="flex-1 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-800">
+      <div className="flex-1 overflow-y-auto pr-1 scrollbar-thin">
         {nfts.length === 0 ? (
-          <div className="text-slate-600 text-center py-20 italic font-mono text-xs">
+          <div className="text-amber-900/60 text-center py-24 italic text-xs">
             No smart contracts triggered yet. Ledger is empty.
           </div>
         ) : (
           <div className="space-y-3">
-            {nfts.map((nft) => (
+            {nfts.map(nft => (
               <div
                 key={nft.tokenId}
-                className="bg-slate-950 border border-slate-900 rounded-xl p-3.5 hover:border-purple-500/30 transition-colors"
+                className="rounded-xl p-3.5 transition-colors hover:border-purple-500/20"
+                style={{ background: 'rgba(255,235,180,0.03)', border: '1px solid rgba(180,145,60,0.12)' }}
               >
                 <div className="flex justify-between items-center mb-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm bg-purple-950/40 text-purple-400 p-1.5 rounded-lg border border-purple-500/10">
+                    <span
+                      className="text-[10px] font-mono text-purple-400/80 px-2 py-0.5 rounded-lg"
+                      style={{ background: 'rgba(168,85,247,0.08)', border: '1px solid rgba(168,85,247,0.15)' }}
+                    >
                       ID: #{nft.tokenId}
                     </span>
-                    <span className="text-xs font-mono text-slate-300 font-semibold">{nft.zoneName}</span>
+                    <span className="text-xs text-amber-100/80 font-bold">{nft.zoneName}</span>
                   </div>
-                  <span className="text-xs font-mono text-emerald-400 bg-emerald-950/20 border border-emerald-500/20 px-2 py-0.5 rounded">
-                    Minted <Check size={12} />
+                  <span
+                    className="text-[10px] font-semibold text-emerald-400 flex items-center gap-1 px-2 py-0.5 rounded-md"
+                    style={{ background: 'rgba(52,211,153,0.08)', border: '1px solid rgba(52,211,153,0.15)' }}
+                  >
+                    Minted <Check size={10} />
                   </span>
                 </div>
 
-                <p className="text-xs font-mono text-slate-400 mb-3 leading-normal">
-                  <span className="mr-1">{getActionEmoji(nft.actionType)}</span>
-                  {nft.details}
+                <p className="text-xs text-amber-200/55 mb-3 leading-relaxed font-medium">
+                  {actionIcon(nft.actionType)}<span>{nft.details}</span>
                 </p>
 
-                <div className="border-t border-slate-900/80 pt-2.5 flex flex-col gap-1 text-xs font-mono text-slate-500">
+                <div className="flex flex-col gap-1.5 text-[10px] font-semibold pt-2.5" style={{ borderTop: '1px solid rgba(180,145,60,0.08)' }}>
                   <div className="flex justify-between">
-                    <span>IPFS Metadata:</span>
-                    <span className="text-slate-400 select-all">{nft.metadataUrl.slice(0, 22)}...</span>
+                    <span className="text-amber-900/70 uppercase tracking-wider font-bold">IPFS Metadata:</span>
+                    <span className="font-mono text-amber-200/45 select-all">{nft.metadataUrl.slice(0, 22)}...</span>
                   </div>
-                  <div className="flex justify-between items-center mt-1">
-                    <span>Tx Hash:</span>
+                  <div className="flex justify-between items-center">
+                    <span className="text-amber-900/70 uppercase tracking-wider font-bold">Tx Hash:</span>
                     <a
                       href="#"
-                      onClick={(e) => e.preventDefault()}
-                      className="text-purple-400 hover:text-purple-300 select-all hover:underline"
-                      title="Polygonscan simulation link"
+                      onClick={e => e.preventDefault()}
+                      className="text-purple-400 hover:text-purple-300 font-mono select-all hover:underline"
                     >
                       {nft.txHash.slice(0, 10)}...{nft.txHash.slice(-8)}
                     </a>
                   </div>
-                  <div className="text-right text-xs text-slate-600 mt-1">
+                  <div className="text-right text-amber-900/50 font-medium mt-0.5">
                     Confirmed: {new Date(nft.timestamp).toLocaleTimeString()}
                   </div>
                 </div>

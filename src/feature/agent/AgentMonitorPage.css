@@ -1,184 +1,140 @@
-/* Agent Monitor Page Specific Custom Styles */
+/* ============================================================
+   EcoGuardian Agent Monitor — Earth-Tone Dark Professional Theme
+   Inspired by: AQI Panel  (#0f0d08 bg, warm dark cards, amber borders)
+   ============================================================ */
 
 .agent-dashboard {
-  background: radial-gradient(circle at 50% 50%, #030805 0%, #000000 100%);
+  background: radial-gradient(ellipse at 50% 0%, #1e1a0c 0%, #121008 45%, #0a0905 100%);
   min-height: 100vh;
-  color: #f8fafc;
+  color: #e2d9c8;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-/* Neon Text and Border Glows */
-.border-glow-green {
-  box-shadow: 0 0 15px rgba(0, 255, 85, 0.08);
-  border: 1px solid rgba(0, 255, 85, 0.25) !important;
+/* ── Glass Panel ─────────────────────────────────────────── */
+.glass-panel {
+  background: rgba(28, 24, 14, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(180, 145, 60, 0.14);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255,235,180,0.03);
+  border-radius: 1rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.border-glow-green:hover {
-  box-shadow: 0 0 25px rgba(0, 255, 85, 0.18);
-  border: 1px solid rgba(0, 255, 85, 0.45) !important;
+.glass-panel:hover {
+  border-color: rgba(180, 145, 60, 0.24);
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255,235,180,0.05);
 }
 
-.text-glow-green {
-  text-shadow: 0 0 8px rgba(0, 255, 85, 0.6);
+/* ── Panel section divider line ──────────────────────────── */
+.panel-divider {
+  border-color: rgba(180, 145, 60, 0.1);
 }
 
-.border-glow-purple {
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.08);
-  border: 1px solid rgba(168, 85, 247, 0.25) !important;
-}
+/* ── Glow Effects ────────────────────────────────────────── */
+.glow-text-teal { text-shadow: 0 0 12px rgba(52, 211, 153, 0.5); }
+.glow-text-amber { text-shadow: 0 0 12px rgba(251, 191, 36, 0.45); }
 
-.border-glow-purple:hover {
-  box-shadow: 0 0 25px rgba(168, 85, 247, 0.18);
-  border: 1px solid rgba(168, 85, 247, 0.45) !important;
-}
-
-/* Custom Scrollbar */
-.scrollbar-thin::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
+/* ── Custom Scrollbar ────────────────────────────────────── */
+.scrollbar-thin::-webkit-scrollbar { width: 5px; height: 5px; }
 .scrollbar-thin::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 9999px;
 }
-
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background: rgba(0, 255, 85, 0.15);
-  border-radius: 4px;
+  background: rgba(180, 145, 60, 0.22);
+  border-radius: 9999px;
 }
-
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 255, 85, 0.35);
+  background: rgba(180, 145, 60, 0.45);
 }
 
-/* CRT / Scanline effect for CLI */
-.crt-effect {
-  position: relative;
-  overflow: hidden;
-}
-
+/* ── Terminal / CRT scanline ─────────────────────────────── */
+.crt-effect { position: relative; overflow: hidden; }
 .crt-effect::after {
-  content: " ";
+  content: "";
   display: block;
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  z-index: 10;
-  background-size: 100% 3px, 6px 100%;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.06) 3px,
+    rgba(0, 0, 0, 0.06) 4px
+  );
   pointer-events: none;
+  z-index: 5;
 }
 
-/* Grid Layout Customizations */
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+/* ── Stat Card (inner cards) ─────────────────────────────── */
+.stat-card {
+  background: rgba(255, 235, 180, 0.03);
+  border: 1px solid rgba(180, 145, 60, 0.12);
+  border-radius: 0.875rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.stat-card:hover {
+  background: rgba(255, 235, 180, 0.06);
+  border-color: rgba(180, 145, 60, 0.22);
 }
 
-@media (min-width: 1024px) {
-  .dashboard-grid {
-    grid-template-columns: 280px 1fr 1fr;
-  }
+/* ── Dashboard Select ────────────────────────────────────── */
+.dashboard-select {
+  appearance: none;
+  background-color: rgba(255, 235, 180, 0.04);
+  border: 1px solid rgba(180, 145, 60, 0.18);
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b49140' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  padding-right: 2.25rem !important;
+}
+.dashboard-select:focus {
+  box-shadow: 0 0 0 2px rgba(180, 145, 60, 0.28);
+  outline: none;
 }
 
-@keyframes pulse-glow {
+/* ── Priority Badges ─────────────────────────────────────── */
+.badge-critical { background: rgba(251,113,133,0.12); color: #fb7185; border: 1px solid rgba(251,113,133,0.25); }
+.badge-high     { background: rgba(251,191, 36,0.10); color: #fbbf24; border: 1px solid rgba(251,191, 36,0.25); }
+.badge-medium   { background: rgba( 56,189,248,0.10); color: #38bdf8; border: 1px solid rgba( 56,189,248,0.22); }
+.badge-low      { background: rgba(148,163,184,0.08); color: #94a3b8; border: 1px solid rgba(148,163,184,0.15); }
 
-  0%,
-  100% {
-    opacity: 1;
-    box-shadow: 0 0 8px rgba(0, 255, 85, 0.4);
-  }
+/* ── Status Pills ────────────────────────────────────────── */
+.pill-success { background: rgba( 52,211,153,0.12); color: #34d399; border: 1px solid rgba( 52,211,153,0.25); }
+.pill-partial { background: rgba(251,191, 36,0.10); color: #fbbf24; border: 1px solid rgba(251,191, 36,0.25); }
+.pill-error   { background: rgba(251,113,133,0.10); color: #fb7185; border: 1px solid rgba(251,113,133,0.25); }
 
-  50% {
-    opacity: 0.6;
-    box-shadow: 0 0 15px rgba(0, 255, 85, 0.7);
-  }
+/* ── Pipeline Step Cards ─────────────────────────────────── */
+.step-pending   {
+  border-color: rgba(180,145,60,0.08);
+  background: rgba(255,235,180,0.02);
+  color: #6b6348;
+}
+.step-completed {
+  border-color: rgba(52,211,153,0.25);
+  background: rgba(52,211,153,0.06);
+  color: #d1c9b0;
+}
+.step-running {
+  border-color: #34d399;
+  background: rgba(52,211,153,0.1);
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.18);
+}
+.step-error {
+  border-color: rgba(251,113,133,0.3);
+  background: rgba(251,113,133,0.06);
+  color: #fca5a5;
 }
 
-.pulse-glow-green {
-  animation: pulse-glow 2s infinite ease-in-out;
+/* ── Animations ──────────────────────────────────────────── */
+@keyframes softPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(52,211,153,0.25); }
+  50%       { opacity: 0.75; box-shadow: 0 0 22px rgba(52,211,153,0.5); }
 }
+.pulse-emerald { animation: softPulse 2.2s ease-in-out infinite; }
 
-.border-glow-purple {
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.08);
-  border: 1px solid rgba(168, 85, 247, 0.25) !important;
-}
-
-.border-glow-purple:hover {
-  box-shadow: 0 0 25px rgba(168, 85, 247, 0.18);
-  border: 1px solid rgba(168, 85, 247, 0.45) !important;
-}
-
-/* Custom Scrollbar */
-.scrollbar-thin::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background: rgba(0, 255, 85, 0.15);
-  border-radius: 4px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 255, 85, 0.35);
-}
-
-/* CRT / Scanline effect for CLI */
-.crt-effect {
-  position: relative;
-  overflow: hidden;
-}
-
-.crt-effect::after {
-  content: " ";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  z-index: 10;
-  background-size: 100% 3px, 6px 100%;
-  pointer-events: none;
-}
-
-/* Grid Layout Customizations */
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-@media (min-width: 1024px) {
-  .dashboard-grid {
-    grid-template-columns: 280px 1fr 1fr;
-  }
-}
-
-@keyframes pulse-glow {
-
-  0%,
-  100% {
-    opacity: 1;
-    box-shadow: 0 0 8px rgba(0, 255, 85, 0.4);
-  }
-
-  50% {
-    opacity: 0.6;
-    box-shadow: 0 0 15px rgba(0, 255, 85, 0.7);
-  }
-}
-
-.pulse-glow-green {
-  animation: pulse-glow 2s infinite ease-in-out;
-}
+@keyframes blink { 50% { opacity: 0; } }
+.cursor-blink { animation: blink 1s step-start infinite; }
