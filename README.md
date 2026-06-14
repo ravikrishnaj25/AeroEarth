@@ -75,8 +75,10 @@ The deeper problem is that environmental systems still depend on humans to inter
 <br><br>
 
 <!-- 🌍 Main Demo Image Full Width -->
+
+
 <p align="center">
-  <img src="assest/agent.png" width="70%" alt="AeroEarth Demo"/>
+  <img src="agent.png" width="100%" alt="AQI Dashboard"/>
 </p>
 
 ### What Makes AeroEarth Different
