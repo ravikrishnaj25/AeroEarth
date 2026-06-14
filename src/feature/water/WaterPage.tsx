@@ -383,7 +383,7 @@ const WaterPage: React.FC = () => {
                 if (audio) {
                   if (newState) {
                     audio.volume = Math.min(rainIntensity / 2, 1);
-                    audio.play().catch(() => {});
+                    audio.play().catch(() => { });
                   } else {
                     audio.pause();
                   }
@@ -525,8 +525,8 @@ const WaterPage: React.FC = () => {
 
           {/* VR Mode Button */}
           <div data-tour="water-vr-button">
-            <VRButton 
-              className="w-full mt-3" 
+            <VRButton
+              className="w-full mt-3"
               onEnterVR={() => setIsVRMode(true)}
             />
           </div>
@@ -535,7 +535,7 @@ const WaterPage: React.FC = () => {
 
       {/* VR Scene Overlay */}
       {isVRMode && viewerRef.current && (
-        <ImmersiveVRScene 
+        <ImmersiveVRScene
           viewer={viewerRef.current}
           onExitVR={() => setIsVRMode(false)}
         />

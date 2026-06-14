@@ -51,7 +51,7 @@ export const ActivityFeed: React.FC<ActivityFeedProps> = ({ logs, currentNodeId,
             Telemetry & Decision Logs
           </h3>
         </div>
-        <button 
+        <button
           onClick={onClear}
           className="text-xs font-mono text-slate-400 hover:text-red-400 border border-slate-800 hover:border-red-500/30 px-2.5 py-1 rounded transition-colors"
         >
@@ -76,8 +76,8 @@ export const ActivityFeed: React.FC<ActivityFeedProps> = ({ logs, currentNodeId,
           </div>
         ) : (
           logs.map((log, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={`py-1 rounded-sm hover:bg-slate-900/40 transition-colors flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 ${getLogStyle(log.level)}`}
             >
               <span className="text-slate-500 shrink-0 select-none">[{log.timestamp}]</span>

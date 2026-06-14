@@ -153,7 +153,7 @@ const LandingPage = () => {
       video.currentTime = 0;
       audio.currentTime = 0;
       video.play();
-      audio.play().catch(() => {});
+      audio.play().catch(() => { });
     };
 
     // Start playing on user interaction (click anywhere)
@@ -161,7 +161,7 @@ const LandingPage = () => {
       if (video.paused) {
         video.play();
       }
-      audio.play().catch(() => {});
+      audio.play().catch(() => { });
       document.removeEventListener('click', handleUserInteraction);
     };
 
@@ -171,7 +171,7 @@ const LandingPage = () => {
     document.addEventListener('click', handleUserInteraction);
 
     // Try to autoplay
-    video.play().catch(() => {});
+    video.play().catch(() => { });
 
     return () => {
       video.removeEventListener('play', handleVideoPlay);

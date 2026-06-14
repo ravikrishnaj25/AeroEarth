@@ -74,7 +74,7 @@ export const DecisionCards: React.FC<DecisionCardsProps> = ({ decisions }) => {
             const hasReasoning = !!decision.llmReasoning;
 
             return (
-              <div 
+              <div
                 key={decision.zoneId}
                 className="bg-slate-950/80 border border-slate-900 rounded-xl overflow-hidden hover:border-[#00ff55]/30 transition-all duration-300"
               >
@@ -118,7 +118,7 @@ export const DecisionCards: React.FC<DecisionCardsProps> = ({ decisions }) => {
                 {/* LLM reasoning toggle */}
                 {hasReasoning && (
                   <div>
-                    <button 
+                    <button
                       onClick={() => toggleExpand(decision.zoneId)}
                       className="w-full text-left px-4 py-2 bg-slate-900/40 text-xs text-slate-400 hover:text-white flex justify-between items-center transition-colors font-mono"
                     >

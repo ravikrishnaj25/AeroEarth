@@ -42,7 +42,7 @@ export const BlockchainLog: React.FC<BlockchainLogProps> = ({ nfts }) => {
         ) : (
           <div className="space-y-3">
             {nfts.map((nft) => (
-              <div 
+              <div
                 key={nft.tokenId}
                 className="bg-slate-950 border border-slate-900 rounded-xl p-3.5 hover:border-purple-500/30 transition-colors"
               >
@@ -70,8 +70,8 @@ export const BlockchainLog: React.FC<BlockchainLogProps> = ({ nfts }) => {
                   </div>
                   <div className="flex justify-between items-center mt-1">
                     <span>Tx Hash:</span>
-                    <a 
-                      href="#" 
+                    <a
+                      href="#"
                       onClick={(e) => e.preventDefault()}
                       className="text-purple-400 hover:text-purple-300 select-all hover:underline"
                       title="Polygonscan simulation link"

@@ -13,7 +13,7 @@ const AgentMonitorPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedModel, setSelectedModel] = useState<'claude-3-5' | 'gpt-4o'>('claude-3-5');
   const [runInterval, setRunInterval] = useState<number>(45000); // 45 seconds default
-  
+
   const {
     state,
     runCycle,
@@ -37,8 +37,8 @@ const AgentMonitorPage: React.FC = () => {
       {/* Top Navigation / Header */}
       <header className="border-b border-[rgba(0,255,85,0.15)] bg-black/60 backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <button 
-            onClick={() => navigate('/')} 
+          <button
+            onClick={() => navigate('/')}
             className="text-xs font-mono border border-slate-800 hover:border-[#00ff55]/30 hover:text-[#00ff55] px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 text-slate-400 bg-slate-950/50"
           >
             <span>←</span> Home
@@ -64,8 +64,8 @@ const AgentMonitorPage: React.FC = () => {
             <span>Agent State: <strong className="text-white uppercase">{state.status}</strong></span>
           </div>
 
-          <a 
-            href="#" 
+          <a
+            href="#"
             onClick={(e) => { e.preventDefault(); navigate('/aqi'); }}
             className="text-xs font-mono bg-[#00ff55]/10 text-[#00ff55] border border-[#00ff55]/20 hover:bg-[#00ff55]/20 px-3 py-1.5 rounded-lg transition-all font-semibold"
           >
@@ -76,7 +76,7 @@ const AgentMonitorPage: React.FC = () => {
 
       {/* Main Container */}
       <main className="max-w-[1600px] mx-auto px-6 mt-6 space-y-6">
-        
+
         {/* Top Control and Pipeline Row */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Controls Panel */}
@@ -91,7 +91,7 @@ const AgentMonitorPage: React.FC = () => {
               <div className="space-y-3">
                 <div className="space-y-1">
                   <label className="text-xs text-slate-500 block uppercase">LLM Planner Core</label>
-                  <select 
+                  <select
                     value={selectedModel}
                     onChange={(e) => setSelectedModel(e.target.value as any)}
                     className="w-full bg-slate-950 border border-slate-850 rounded-lg p-1.5 text-xs text-white outline-none focus:border-[#00ff55]/50 transition-colors"
@@ -103,7 +103,7 @@ const AgentMonitorPage: React.FC = () => {
 
                 <div className="space-y-1">
                   <label className="text-xs text-slate-500 block uppercase">Auto-Cycle Rate</label>
-                  <select 
+                  <select
                     value={runInterval}
                     onChange={handleIntervalChange}
                     className="w-full bg-slate-950 border border-slate-850 rounded-lg p-1.5 text-xs text-white outline-none focus:border-[#00ff55]/50 transition-colors"
@@ -118,25 +118,23 @@ const AgentMonitorPage: React.FC = () => {
 
             {/* Run Buttons */}
             <div className="space-y-2.5 mt-5">
-              <button 
+              <button
                 onClick={handleRunManual}
                 disabled={state.status === 'running'}
-                className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold tracking-wide uppercase transition-all duration-300 border ${
-                  state.status === 'running' 
-                    ? 'bg-slate-900 border-slate-800 text-slate-600 cursor-not-allowed' 
-                    : 'bg-[#00ff55] hover:bg-[#00cc44] text-black border-transparent shadow-[0_0_15px_rgba(0,255,85,0.15)] hover:shadow-[0_0_25px_rgba(0,255,85,0.3)]'
-                }`}
+                className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold tracking-wide uppercase transition-all duration-300 border ${state.status === 'running'
+                  ? 'bg-slate-900 border-slate-800 text-slate-600 cursor-not-allowed'
+                  : 'bg-[#00ff55] hover:bg-[#00cc44] text-black border-transparent shadow-[0_0_15px_rgba(0,255,85,0.15)] hover:shadow-[0_0_25px_rgba(0,255,85,0.3)]'
+                  }`}
               >
                 {state.status === 'running' ? 'Cycle Executing...' : '⚡ Trigger Agent Cycle'}
               </button>
 
-              <button 
+              <button
                 onClick={toggleAutoRun}
-                className={`w-full py-2 px-4 rounded-xl text-xs font-bold border transition-colors ${
-                  isAutoRunning 
-                    ? 'border-red-500/30 text-red-400 bg-red-950/10 hover:bg-red-950/20' 
-                    : 'border-[#00ff55]/30 text-[#00ff55] bg-[#00ff55]/5 hover:bg-[#00ff55]/10'
-                }`}
+                className={`w-full py-2 px-4 rounded-xl text-xs font-bold border transition-colors ${isAutoRunning
+                  ? 'border-red-500/30 text-red-400 bg-red-950/10 hover:bg-red-950/20'
+                  : 'border-[#00ff55]/30 text-[#00ff55] bg-[#00ff55]/5 hover:bg-[#00ff55]/10'
+                  }`}
               >
                 {isAutoRunning ? '❚❚ Pause Auto-Scheduler' : '▶ Enable Auto-Scheduler'}
               </button>
@@ -155,7 +153,7 @@ const AgentMonitorPage: React.FC = () => {
 
         {/* Dashboard Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          
+
           {/* Column 1: CLI Telemetry & On-Chain Commitments */}
           <div className="space-y-6">
             <ActivityFeed logs={state.logs} currentNodeId={state.currentNodeId} onClear={clearLogs} />

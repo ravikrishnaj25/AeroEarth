@@ -55,7 +55,7 @@ export const AgentPipeline: React.FC<AgentPipelineProps> = ({ currentNodeId, sta
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 relative">
         {STEPS.map((step, index) => {
           let stepStatus: 'pending' | 'running' | 'completed' | 'error' = 'pending';
-          
+
           if (status === 'running') {
             if (index < currentIndex) stepStatus = 'completed';
             else if (index === currentIndex) stepStatus = 'running';
@@ -83,8 +83,8 @@ export const AgentPipeline: React.FC<AgentPipelineProps> = ({ currentNodeId, sta
           }
 
           return (
-            <div 
-              key={step.id} 
+            <div
+              key={step.id}
               className={`flex flex-col items-center justify-between border rounded-xl p-3 text-center transition-all duration-300 ${cardStyle} ${glowStyle}`}
             >
               <div className={`w-10 h-10 rounded-full flex items-center justify-center border font-mono text-lg mb-2 ${iconStyle}`}>
@@ -99,12 +99,11 @@ export const AgentPipeline: React.FC<AgentPipelineProps> = ({ currentNodeId, sta
 
               {/* Step indicator bar on the bottom */}
               <div className="w-full mt-3 h-1 bg-slate-900 rounded-full overflow-hidden">
-                <div 
-                  className={`h-full transition-all duration-500 ${
-                    stepStatus === 'completed' ? 'w-full bg-[#00ff55]' : 
-                    stepStatus === 'running' ? 'w-1/2 bg-[#00ff55] animate-pulse' : 
-                    stepStatus === 'error' ? 'w-full bg-red-500' : 'w-0'
-                  }`} 
+                <div
+                  className={`h-full transition-all duration-500 ${stepStatus === 'completed' ? 'w-full bg-[#00ff55]' :
+                      stepStatus === 'running' ? 'w-1/2 bg-[#00ff55] animate-pulse' :
+                        stepStatus === 'error' ? 'w-full bg-red-500' : 'w-0'
+                    }`}
                 />
               </div>
             </div>

@@ -54,8 +54,8 @@ export const QuestsPanel: React.FC<QuestsPanelProps> = ({ quests }) => {
           <div className="space-y-4">
             {/* Active Quests */}
             {activeQuests.map((quest) => (
-              <div 
-                key={quest.id} 
+              <div
+                key={quest.id}
                 className="bg-slate-950 border border-slate-900 rounded-xl p-4 hover:border-[#00ff55]/40 transition-colors"
               >
                 <div className="flex justify-between items-start gap-2 mb-2">
@@ -80,8 +80,8 @@ export const QuestsPanel: React.FC<QuestsPanelProps> = ({ quests }) => {
                     <span>{quest.progress}% Joined</span>
                   </div>
                   <div className="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-[#00ff55] rounded-full transition-all duration-700" 
+                    <div
+                      className="h-full bg-[#00ff55] rounded-full transition-all duration-700"
                       style={{ width: `${quest.progress}%` }}
                     />
                   </div>
@@ -101,8 +101,8 @@ export const QuestsPanel: React.FC<QuestsPanelProps> = ({ quests }) => {
                   Quest Archive
                 </div>
                 {pastQuests.slice(0, 5).map((quest) => (
-                  <div 
-                    key={quest.id} 
+                  <div
+                    key={quest.id}
                     className="bg-slate-950/40 border border-slate-900 rounded-lg p-3 flex justify-between items-center opacity-60 font-mono text-xs"
                   >
                     <div>

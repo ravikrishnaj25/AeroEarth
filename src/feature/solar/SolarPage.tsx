@@ -387,8 +387,8 @@ const SolarPage: React.FC = () => {
 
           {/* VR Mode Button */}
           <div data-tour="solar-vr-button">
-            <VRButton 
-              className="w-full mt-3" 
+            <VRButton
+              className="w-full mt-3"
               onEnterVR={() => setIsVRMode(true)}
             />
           </div>
@@ -397,7 +397,7 @@ const SolarPage: React.FC = () => {
 
       {/* VR Scene Overlay */}
       {isVRMode && viewerRef.current && (
-        <ImmersiveVRScene 
+        <ImmersiveVRScene
           viewer={viewerRef.current}
           onExitVR={() => setIsVRMode(false)}
         />

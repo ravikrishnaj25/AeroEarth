@@ -8,7 +8,7 @@ interface VerificationPanelProps {
 export const VerificationPanel: React.FC<VerificationPanelProps> = ({ verifications }) => {
   // Compute some simulated aggregate metrics based on verification data or reasonable static baselines
   const totalCount = verifications.length;
-  const avgAccuracy = totalCount > 0 
+  const avgAccuracy = totalCount > 0
     ? Math.round(verifications.reduce((sum, item) => sum + item.accuracy, 0) / totalCount)
     : 89; // Default starting accuracy for display
 
@@ -70,7 +70,7 @@ export const VerificationPanel: React.FC<VerificationPanelProps> = ({ verificati
         ) : (
           <div className="space-y-3">
             {verifications.map((item, idx) => (
-              <div 
+              <div
                 key={idx}
                 className="bg-slate-950 border border-slate-900 rounded-xl p-3 font-mono text-xs"
               >
@@ -83,11 +83,11 @@ export const VerificationPanel: React.FC<VerificationPanelProps> = ({ verificati
 
                 <div className="grid grid-cols-2 gap-1 border-t border-slate-900/50 pt-2 text-slate-500 text-xs">
                   <div>
-                    Predicted Delta: 
+                    Predicted Delta:
                     <span className="text-slate-300 block font-semibold">{getDeltaString(item.actionType, item.predictedDelta)}</span>
                   </div>
                   <div>
-                    Actual Delta: 
+                    Actual Delta:
                     <span className="text-[#00ff55] block font-semibold">{getDeltaString(item.actionType, item.actualDelta)}</span>
                   </div>
                 </div>

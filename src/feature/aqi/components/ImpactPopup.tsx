@@ -22,7 +22,7 @@ export const ImpactPopup: React.FC<ImpactPopupProps> = ({ impact, position, onCl
             }}
         >
             <button className="impact-popup-close" onClick={onClose}>×</button>
-            
+
             {impact.type === 'tree' && (
                 <div className="impact-content">
                     <div className="impact-header tree">
@@ -30,7 +30,7 @@ export const ImpactPopup: React.FC<ImpactPopupProps> = ({ impact, position, onCl
                         <h3>Tree Impact Summary</h3>
                     </div>
                     <div className="impact-badge outdoor">🌍 Outdoor Impact</div>
-                    
+
                     <div className="impact-stats">
                         <div className="stat-row highlight">
                             <span className="stat-label">Tree Type</span>
@@ -57,7 +57,7 @@ export const ImpactPopup: React.FC<ImpactPopupProps> = ({ impact, position, onCl
                             <span className="stat-value eco">{impact.co2Absorbed} kg/year</span>
                         </div>
                     </div>
-                    
+
                     <div className="impact-cost">
                         <div className="cost-row">
                             <span>One-time Cost</span>
@@ -68,11 +68,11 @@ export const ImpactPopup: React.FC<ImpactPopupProps> = ({ impact, position, onCl
                             <span className="cost-value">{formatCurrency(impact.maintenanceMonthly)}/month</span>
                         </div>
                     </div>
-                    
+
                     <p className="impact-summary">{impact.impactSummary}</p>
                 </div>
             )}
-            
+
             {impact.type === 'garden' && (
                 <div className="impact-content">
                     <div className="impact-header garden">
@@ -80,7 +80,7 @@ export const ImpactPopup: React.FC<ImpactPopupProps> = ({ impact, position, onCl
                         <h3>Vertical Garden Impact</h3>
                     </div>
                     <div className="impact-badge outdoor">🌍 Outdoor Impact</div>
-                    
+
                     <div className="impact-stats">
                         <div className="stat-row highlight">
                             <span className="stat-label">Area Installed</span>
@@ -103,7 +103,7 @@ export const ImpactPopup: React.FC<ImpactPopupProps> = ({ impact, position, onCl
                             <span className="stat-value">-{impact.noiseReduction.toFixed(1)} dB</span>
                         </div>
                     </div>
-                    
+
                     <div className="impact-cost">
                         <div className="cost-row">
                             <span>Cost per m²</span>
@@ -118,11 +118,11 @@ export const ImpactPopup: React.FC<ImpactPopupProps> = ({ impact, position, onCl
                             <span className="cost-value">{formatCurrency(impact.maintenanceMonthly)}/month</span>
                         </div>
                     </div>
-                    
+
                     <p className="impact-summary">{impact.impactSummary}</p>
                 </div>
             )}
-            
+
             {impact.type === 'purifier' && (
                 <div className="impact-content">
                     <div className="impact-header purifier">
@@ -130,7 +130,7 @@ export const ImpactPopup: React.FC<ImpactPopupProps> = ({ impact, position, onCl
                         <h3>Air Purifier Impact</h3>
                     </div>
                     <div className="impact-badge indoor">🏠 Indoor Impact</div>
-                    
+
                     <div className="impact-stats">
                         <div className="stat-row highlight">
                             <span className="stat-label">Room Coverage</span>
@@ -145,7 +145,7 @@ export const ImpactPopup: React.FC<ImpactPopupProps> = ({ impact, position, onCl
                             <span className="stat-value">{impact.cadr} m³/hr</span>
                         </div>
                     </div>
-                    
+
                     <div className="impact-cost">
                         <div className="cost-row">
                             <span>Device Cost</span>
@@ -156,7 +156,7 @@ export const ImpactPopup: React.FC<ImpactPopupProps> = ({ impact, position, onCl
                             <span className="cost-value">{formatCurrency(impact.filterReplacement)} / 6 months</span>
                         </div>
                     </div>
-                    
+
                     <p className="impact-summary">{impact.impactSummary}</p>
                 </div>
             )}
